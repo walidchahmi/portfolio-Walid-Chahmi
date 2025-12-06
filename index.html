@@ -1,0 +1,2272 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Walid Chahmi | Portfolio pour Universités Russes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Raleway:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --primary: #7C3AED;
+            /* Violet propre */
+            --secondary: #10B981;
+            /* Vert moderne */
+            --accent: #F59E0B;
+            /* Orange accent */
+            --dark: #0F172A;
+            /* Noir bleuté élégant */
+            --light: #F3F4F6;
+            /* Fond clair pro */
+            --gray: #6B7280;
+            /* Gris neutre professionnel */
+            --card-bg: #ffffff;
+            /* Blanc clean */
+            --header-bg: rgba(255, 255, 255, 0.15);
+            /* Glassmorphism léger */
+            --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+            --shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+            --radius: 16px;
+            --gradient: linear-gradient(135deg, #6d28d9 0%, #8B5CF6 100%);
+
+            /* Background dynamique */
+            --bg-gradient-start: #616161;
+            /* Couleur initiale clair */
+            --bg-gradient-end: #ffffff;
+        }
+
+        .dark-mode {
+            --primary: #A78BFA;
+            --secondary: #34D399;
+            --accent: #FBBF24;
+            --dark: #F9FAFB;
+            --light: #303236;
+            --gray: #9CA3AF;
+            --card-bg: #1F2937;
+            --header-bg: rgba(31, 41, 55, 0.85);
+            --gradient: linear-gradient(135deg, #A78BFA 0%, #8B5CF6 100%);
+
+            /* Background sombre pour dark mode */
+            --bg-gradient-start: #1F2937;
+            --bg-gradient-end: #797d85;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            /* Dégradé dynamique selon mode */
+            background: linear-gradient(135deg, var(--bg-gradient-start), var(--bg-gradient-end));
+            background-size: 300% 300%;
+            animation: smoothGradient 18s ease-in-out infinite;
+            position: relative;
+            overflow-x: hidden;
+            transition: background 0.6s ease-in-out;
+        }
+
+        /* Texture premium */
+        body::after {
+            content: "";
+            position: fixed;
+            inset: 0;
+            background-image: url("https://grainy-gradients.vercel.app/noise.svg");
+            opacity: 0.08;
+            mix-blend-mode: soft-light;
+            pointer-events: none;
+            z-index: 9999;
+        }
+
+        /* Animation du dégradé */
+        @keyframes smoothGradient {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+
+
+        /* =============== HEADER STYLÉ PREMIUM =============== */
+        header {
+            background: var(--header-bg);
+            backdrop-filter: blur(15px) saturate(180%);
+            -webkit-backdrop-filter: blur(15px) saturate(180%);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 1.2rem 0;
+            transition: 0.35s ease;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+        }
+
+        /* Header apparition douce */
+        header {
+            opacity: 0;
+            transform: translateY(-20px);
+            animation: headerFade 0.8s ease forwards;
+        }
+
+        @keyframes headerFade {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* =================== LOGO =================== */
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            transform: translateY(0);
+            transition: 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: translateY(-2px);
+        }
+
+        .logo-icon {
+            width: 44px;
+            height: 44px;
+            background: var(--gradient);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.25rem;
+            box-shadow: 0 6px 18px rgba(124, 58, 237, 0.35);
+            transition: 0.3s ease;
+        }
+
+        .logo-icon:hover {
+            box-shadow: 0 8px 22px rgba(124, 58, 237, 0.45);
+        }
+
+        .logo-text {
+            font-size: 1.9rem;
+            font-weight: 800;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* =================== NAVIGATION =================== */
+        .nav-links {
+            display: flex;
+            gap: 2.4rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 600;
+            font-size: 1.05rem;
+            position: relative;
+            padding: 10px 0;
+            transition: 0.35s ease;
+            letter-spacing: 0.3px;
+        }
+
+        .nav-links a::after {
+            content: "";
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0%;
+            height: 3px;
+            background: var(--gradient);
+            border-radius: 4px;
+            transition: 0.35s ease;
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        /* =================== CONTROLS =================== */
+        .header-controls {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+        }
+
+        /* ======= THEME TOGGLE ======= */
+        .theme-toggle {
+            width: 52px;
+            height: 28px;
+            background: var(--gray);
+            border-radius: 50px;
+            padding: 3px;
+            cursor: pointer;
+            position: relative;
+            transition: 0.35s ease;
+            box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.22);
+        }
+
+        .theme-toggle.active {
+            background: var(--primary);
+        }
+
+        .theme-toggle-circle {
+            width: 22px;
+            height: 22px;
+            background: white;
+            border-radius: 50%;
+            position: absolute;
+            left: 3px;
+            top: 3px;
+            transition: 0.35s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);
+        }
+
+        .theme-toggle.active .theme-toggle-circle {
+            left: calc(100% - 25px);
+        }
+
+        /* ======= LANGUAGE BUTTONS ======= */
+        .lang-btn {
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            padding: 6px 16px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: 700;
+            transition: 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            letter-spacing: 0.4px;
+        }
+
+        .lang-btn:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .lang-btn.active {
+            background: var(--primary);
+            color: white;
+            box-shadow: 0 6px 18px rgba(124, 58, 237, 0.35);
+        }
+
+
+        /* Hero Section */
+        .hero {
+            padding: 180px 0 100px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(124, 58, 237, 0.05) 0%, rgba(16, 185, 129, 0.03) 100%);
+            z-index: -1;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            text-align: center;
+            margin: 0 auto;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: var(--gradient);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 25px;
+            box-shadow: 0 5px 15px rgba(124, 58, 237, 0.2);
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            color: var(--gray);
+            margin-bottom: 40px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 50px;
+            flex-wrap: wrap;
+        }
+
+        .stat-box {
+            text-align: center;
+            padding: 25px;
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            min-width: 150px;
+            transition: var(--transition);
+        }
+
+        .stat-box:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            color: var(--gray);
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        /* Sections */
+        section {
+            padding: 100px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 70px;
+            height: 4px;
+            background: var(--gradient);
+            border-radius: 2px;
+        }
+
+        .section-subtitle {
+            color: var(--gray);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* About */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-image {
+            position: relative;
+        }
+
+        .profile-img {
+            width: 100%;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .profile-img:hover {
+            transform: scale(1.02);
+        }
+
+        .about-badge {
+            position: absolute;
+            bottom: 30px;
+            right: -20px;
+            background: var(--gradient);
+            color: white;
+            padding: 15px 25px;
+            border-radius: var(--radius);
+            box-shadow: 0 10px 25px rgba(124, 58, 237, 0.3);
+        }
+
+        .about-text h3 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .about-text p {
+            margin-bottom: 25px;
+            color: var(--gray);
+        }
+
+        .languages-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .language-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 20px;
+            background: var(--card-bg);
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(65, 64, 64, 0.05);
+        }
+
+        .language-flag {
+            width: 30px;
+            height: 20px;
+            border-radius: 3px;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        .language-flag img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Certifications */
+        .certifications {
+            background: linear-gradient(135deg, rgba(124, 58, 237, 0) 0%, rgba(16, 185, 134, 0) 100%);
+        }
+
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .cert-card {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            padding: 30px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border-left: 5px solid var(--primary);
+        }
+
+        .cert-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+        }
+
+        .cert-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--gradient);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        .cert-category {
+            display: inline-block;
+            background: rgba(124, 58, 237, 0.1);
+            color: var(--primary);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .cert-card h4 {
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+
+        .cert-card p {
+            color: var(--gray);
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+        }
+
+        /* Skills */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .skill-card {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            padding: 30px;
+            box-shadow: var(--shadow);
+        }
+
+        .skill-category {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .skill-category i {
+            font-size: 1.8rem;
+            color: var(--primary);
+        }
+
+        .skill-item {
+            margin-bottom: 20px;
+        }
+
+        .skill-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+        }
+
+        .skill-name {
+            font-weight: 600;
+        }
+
+        .skill-percent {
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        .skill-bar {
+            height: 8px;
+            background: rgba(0, 0, 0, 0.1);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .skill-progress {
+            height: 100%;
+            background: var(--gradient);
+            border-radius: 4px;
+            width: 0;
+            transition: width 1.5s ease-in-out;
+        }
+
+        /* Projects */
+        .projects {
+            background: linear-gradient(135deg, rgba(124, 58, 237, 0.03) 0%, rgba(16, 185, 129, 0.02) 100%);
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .project-card {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .project-image {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .project-card:hover .project-image img {
+            transform: scale(1.1);
+        }
+
+        .project-content {
+            padding: 25px;
+        }
+
+        .project-title {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+        }
+
+        .project-description {
+            color: var(--gray);
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .tech-tag {
+            background: rgba(124, 58, 237, 0.1);
+            color: var(--primary);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .project-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+
+        .project-link:hover {
+            color: var(--secondary);
+            transform: translateY(-3px);
+        }
+
+        /* Gallery */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: var(--radius);
+            overflow: hidden;
+            height: 250px;
+            cursor: pointer;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+            color: white;
+            padding: 20px;
+            transform: translateY(100%);
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            transform: translateY(0);
+        }
+
+        /* Contact */
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            flex-wrap: wrap;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 20px;
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .contact-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--gradient);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+        }
+
+        .contact-form {
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+        }
+
+        .contact-form .form-group {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 20px;
+        }
+
+        .contact-form label {
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            padding: 12px 15px;
+            border: 1px solid var(--gray);
+            border-radius: var(--radius);
+            background: var(--light);
+            color: var(--dark);
+            transition: var(--transition);
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            border-color: var(--primary);
+            outline: none;
+        }
+
+        .contact-form .btn {
+            padding: 12px 25px;
+            background: var(--gradient);
+            border: none;
+            border-radius: var(--radius);
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .contact-form .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+            background: var(--light);
+            color: var(--dark);
+            font-family: 'Raleway', sans-serif;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--gradient);
+            color: white;
+            padding: 15px 35px;
+            border-radius: 12px;
+            border: none;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+            box-shadow: 0 5px 15px rgba(124, 58, 237, 0.3);
+        }
+
+        .btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(124, 58, 237, 0.4);
+        }
+
+        /* Footer Stylé */
+        footer {
+            background: var(--light);
+            color: white;
+            padding: 80px 0 30px;
+            position: relative;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 50px;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .footer-logo-text {
+            font-size: 1.8rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #8e6bf8 0%, #8B5CF6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .footer-description {
+            color: #595b5f;
+            margin-bottom: 30px;
+            line-height: 1.8;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-link {
+            width: 45px;
+            height: 45px;
+            background: #3f3f41;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgb(255, 255, 255);
+            font-size: 1.2rem;
+            transition: var(--transition);
+            text-decoration: none;
+        }
+
+        .social-link:hover {
+            background: var(--primary);
+            transform: translateY(-5px);
+        }
+
+        .footer-title {
+            font-size: 1.3rem;
+            margin-bottom: 25px;
+            color: #598ffa;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 15px;
+        }
+
+        .footer-links a {
+            color: #5f8ea7;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+            padding-left: 5px;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #595b5f;
+            color: #5d7194;
+            font-size: 0.9rem;
+        }
+
+        .footer-heart {
+            color: var(--secondary);
+            animation: heartbeat 1.5s infinite;
+        }
+
+        @keyframes heartbeat {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.1);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+
+            .about-content,
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero-title {
+                font-size: 2.8rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-stats {
+                gap: 20px;
+            }
+
+            .stat-box {
+                min-width: 120px;
+                padding: 20px;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .languages-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero {
+                padding: 150px 0 60px;
+            }
+
+            .hero-title {
+                font-size: 2.2rem;
+            }
+
+            section {
+                padding: 60px 0;
+            }
+
+            .cert-grid,
+            .skills-grid,
+            .project-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .languages-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Par défaut : afficher anglais, cacher russe */
+        .en {
+            display: block;
+        }
+
+        .ru {
+            display: none;
+        }
+
+        /* Mode russe */
+        body.ru-lang .en {
+            display: none;
+        }
+
+        body.ru-lang .ru {
+            display: block;
+        }
+
+        /* Mode anglais */
+        body.en-lang .en {
+            display: block;
+        }
+
+        body.en-lang .ru {
+            display: none;
+        }
+
+        .photo-frame {
+            width: 280px;
+            height: 280px;
+            border-radius: 50%;
+            border: 8px solid white;
+            overflow: hidden;
+            background-color: #f5f5f5;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+            margin: 0 auto 30px auto;
+            /* ← CENTRAGE ICI */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #profileImage {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header Stylé -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                <div class="logo-text">
+                    <span class="en">Walid Chahmi</span>
+                    <span class="ru">Валид Шахми</span>
+                </div>
+            </div>
+
+            <ul class="nav-links">
+                <li>
+                    <a href="#home" class="en active">Home</a>
+                    <a href="#home" class="ru active">Главная</a>
+                </li>
+
+                <li>
+                    <a href="#about" class="en">About</a>
+                    <a href="#about" class="ru">Обо мне</a>
+                </li>
+
+                <li>
+                    <a href="#certifications" class="en">Certifications</a>
+                    <a href="#certifications" class="ru">Сертификаты</a>
+                </li>
+
+                <li>
+                    <a href="#skills" class="en">Skills</a>
+                    <a href="#skills" class="ru">Навыки</a>
+                </li>
+
+                <li>
+                    <a href="#projects" class="en">Projects</a>
+                    <a href="#projects" class="ru">Проекты</a>
+                </li>
+
+                <li>
+                    <a href="#gallery" class="en">Gallery</a>
+                    <a href="#gallery" class="ru">Галерея</a>
+                </li>
+
+                <li>
+                    <a href="#contact" class="en">Contact</a>
+                    <a href="#contact" class="ru">Контакты</a>
+                </li>
+            </ul>
+
+            <div class="header-controls">
+                <div class="theme-toggle" id="theme-toggle">
+                    <div class="theme-toggle-circle">
+                        <i class="fas fa-moon"></i>
+                    </div>
+                </div>
+
+                <button class="lang-btn" id="en-btn">
+                    <i class="fas fa-globe"></i> EN
+                </button>
+
+                <button class="lang-btn" id="ru-btn">
+                    <i class="fas fa-flag"></i> RU
+                </button>
+            </div>
+        </div>
+    </header>
+
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-bg"></div>
+        <div class="container">
+            <div class="hero-content fade-in">
+                <span class="hero-badge en">Future Computer Science Student</span>
+                <span class="hero-badge ru">Будущий студент информатики</span>
+                <div class="photo-container">
+                    <div class="photo-frame">
+                        <!-- Image walid.jpg dans un cadre circulaire -->
+                        <img id="profileImage" src="walid1.jpg" alt="Photo de Вагид Шахми">
+                    </div>
+                </div>
+                <h1 class="hero-title">
+                    <span class="en" style="color: rgb(41, 0, 41);">Walid Chahmi</span>
+                    <span class="ru">Валид Шахми</span>
+                </h1>
+
+                <p class="hero-subtitle en">
+                    18-year-old Tunisian student specializing in Computer Science at Lycée Bardo.
+                    With 25+ certifications and a passion for technology, seeking to pursue
+                    higher education in Russia to become a Machine Learning Engineer.
+                </p>
+                <p class="hero-subtitle ru">
+                    18-летний тунисский студент, специализирующийся на информатике в лицее Бардо.
+                    Имея более 25 сертификатов и страсть к технологиям, стремлюсь получить
+                    высшее образование в России, чтобы стать инженером.
+                </p>
+
+                <div class="hero-stats">
+                    <div class="stat-box">
+                        <div class="stat-number">25+</div>
+                        <div class="stat-label en">Certifications</div>
+                        <div class="stat-label ru">Сертификатов</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-number">5</div>
+                        <div class="stat-label en">Languages</div>
+                        <div class="stat-label ru">Языков</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-number">2</div>
+                        <div class="stat-label en">Marathons</div>
+                        <div class="stat-label ru">Русский Дом Events</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-number">100%</div>
+                        <div class="stat-label en">HTML/CSS</div>
+                        <div class="stat-label ru">HTML/CSS</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2 class="section-title en">About Me</h2>
+                <h2 class="section-title ru">Обо мне</h2>
+                <p class="section-subtitle en">
+                    Passionate computer science student with exceptional academic achievements
+                </p>
+                <p class="section-subtitle ru">
+                    Увлеченный студент информатики с выдающимися академическими достижениями
+                </p>
+            </div>
+
+            <div class="about-content fade-in">
+                <div class="about-image">
+                    <img src="walid.jpg" alt="Walid Chahmi" class="profile-img">
+                    <div class="about-badge">
+                        <div class="en">GPA: 16.24/20</div>
+                        <div class="ru">Средний балл: 16.24/20</div>
+                    </div>
+                </div>
+
+                <div class="about-text">
+                    <h3 class="en">Lycée Bardo Student</h3>
+                    <h3 class="ru">Ученик лицея Бардо</h3>
+
+                    <p class="en">
+                        I am an 18-year-old student in my final year at Lycée Bardo, specializing in
+                        Computer Science (4ème Informatique). With an exceptional academic record
+                        and numerous technical certifications, I have demonstrated strong dedication
+                        to technology and innovation.
+                    </p>
+                    <p class="ru">
+                        Я 18-летний студент выпускного класса лицея Бардо, специализирующийся на
+                        информатике (4ème Informatique). Имея исключительную академическую успеваемость
+                        и множество технических сертификатов, я продемонстрировал сильную преданность
+                        технологиям и инновациям.
+                    </p>
+
+                    <p class="en">
+                        My goal is to study in Russia to become a Machine Learning Engineer.
+                        I actively participate in cultural activities at the Russian House in Tunis
+                        and have been studying Russian language (B1 level).
+                    </p>
+                    <p class="ru">
+                        Моя цель - учиться в России, чтобы стать инженером по машинному обучению.
+                        Я активно участвую в культурных мероприятиях Русского дома в Тунисе
+                        и изучаю русский язык (уровень B1).
+                    </p>
+
+                    <div class="languages-grid">
+                        <div class="language-item">
+                            <div class="language-flag"
+                                style="background: linear-gradient(to bottom, #006233 33%, #006233 33%, #006233 33%, #006233 33%);">
+                            </div>
+                            <span>Arabic (Native)</span>
+                        </div>
+                        <div class="language-item">
+                            <div class="language-flag"
+                                style="background: linear-gradient(to bottom, white 33%,blue 33%,  blue 33%,  red 90%);">
+                            </div>
+                            <span>Russian (B1)</span>
+                        </div>
+                        <div class="language-item">
+                            <div class="language-flag"
+                                style="background: linear-gradient(to bottom, #00247D 33%, #00247D 33%, #00247D 33%, #00247D 33%);">
+                            </div>
+                            <span>English (B2)</span>
+                        </div>
+                        <div class="language-item">
+                            <div class="language-flag"
+                                style="background: linear-gradient(to right, #002395 33%, white 33%, white 66%, #ED2939 66%);">
+                            </div>
+                            <span>French (B2)</span>
+                        </div>
+                        <div class="language-item">
+                            <div class="language-flag"
+                                style="background: linear-gradient(to right, #009246 33%, white 33%, white 66%, #CE2B37 66%);">
+                            </div>
+                            <span>Italian (A1)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section id="certifications" class="certifications">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2 class="section-title en">Certifications</h2>
+                <h2 class="section-title ru">Сертификаты</h2>
+                <p class="section-subtitle en">
+                    25+ certifications in web development, AI, and data analysis
+                </p>
+                <p class="section-subtitle ru">
+                    25+ сертификатов в веб-разработке, ИИ и анализе данных
+                </p>
+            </div>
+
+            <div class="cert-grid">
+                <!-- Web Development -->
+                <div class="cert-card fade-in">
+                    <div class="cert-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <span class="cert-category">Web Development</span>
+                    <h4>Responsive Web Design</h4>
+                    <p class="en">freeCodeCamp - 300 hours certification</p>
+                    <p class="ru">freeCodeCamp - Сертификат на 300 часов</p>
+                </div>
+
+                <div class="cert-card fade-in">
+                    <div class="cert-icon">
+                        <i class="fab fa-wordpress"></i>
+                    </div>
+                    <span class="cert-category">Web Development</span>
+                    <h4>Full Website with WordPress</h4>
+                    <p class="en">Coursera Project - Professional certification</p>
+                    <p class="ru">Проект Coursera - Профессиональный сертификат</p>
+                </div>
+
+                <div class="cert-card fade-in">
+                    <div class="cert-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <span class="cert-category">Web Development</span>
+                    <h4>Build a Full Website using WordPress</h4>
+                    <p class="en">Coursera Project - Nov 2025</p>
+                    <p class="ru">Проект Coursera - Ноя 2025</p>
+                </div>
+
+                <div class="cert-card fade-in">
+                    <div class="cert-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <span class="cert-category">Web Development</span>
+                    <h4>Web Development Essentials</h4>
+                    <p class="en">GOMYCODE - Average: 95%</p>
+                    <p class="ru">GOMYCODE - Средний балл: 95%</p>
+                </div>
+
+                <div class="cert-card fade-in">
+                    <div class="cert-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <span class="cert-category">Web Development</span>
+                    <h4>Build a free website with WordPress</h4>
+                    <p class="en">Coursera Project - Nov 2025</p>
+                    <p class="ru">Проект Coursera - Ноя 2025</p>
+                </div>
+
+                <div class="cert-card fade-in">
+                    <div class="cert-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <span class="cert-category">Web Development</span>
+                    <h4>Develop a Company Website with Wix</h4>
+                    <p class="en">Coursera Project - Nov 2025</p>
+                    <p class="ru">Проект Coursera - Ноя 2025</p>
+                </div>
+
+                <!-- AI & Data -->
+                <div class="cert-card fade-in">
+                    <div class="cert-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <span class="cert-category">Artificial Intelligence</span>
+                    <h4>Gemini Certified Educator</h4>
+                    <p class="en">Google for Education - AI certification</p>
+                    <p class="ru">Google for Education - Сертификат по ИИ</p>
+                </div>
+
+                <div class="cert-card fade-in">
+                    <div class="cert-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <span class="cert-category">Data Analysis</span>
+                    <h4>Construct Stock Market Indices</h4>
+                    <p class="en">Coursera - Financial data analysis</p>
+                    <p class="ru">Coursera - Анализ финансовых данных</p>
+                </div>
+
+                <div class="cert-card fade-in">
+                    <div class="cert-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <span class="cert-category">AI & Freelancing</span>
+                    <h4>Online Freelancing & AI Strategies</h4>
+                    <p class="en">Alhababi Business - Jan 2025</p>
+                    <p class="ru">Alhababi Business - Янв 2025</p>
+                </div>
+
+                <div class="cert-card fade-in">
+                    <div class="cert-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <span class="cert-category">Web Development</span>
+                    <h4>Introduction to Web Development with AI Skills</h4>
+                    <p class="en">GOMYCODE - June 2025</p>
+                    <p class="ru">GOMYCODE - Июнь 2025</p>
+                </div>
+
+                <!-- Microsoft Office -->
+                <div class="cert-card fade-in">
+                    <div class="cert-icon">
+                        <i class="fas fa-file-excel"></i>
+                    </div>
+                    <span class="cert-category">Office Tools</span>
+                    <h4>Getting Started with Microsoft Excel</h4>
+                    <p class="en">Coursera Project - Nov 2025</p>
+                    <p class="ru">Проект Coursera - Ноя 2025</p>
+                </div>
+
+                <div class="cert-card fade-in">
+                    <div class="cert-icon">
+                        <i class="fas fa-file-powerpoint"></i>
+                    </div>
+                    <span class="cert-category">Office Tools</span>
+                    <h4>Getting Started with Microsoft PowerPoint</h4>
+                    <p class="en">Coursera Project - Nov 2025</p>
+                    <p class="ru">Проект Coursera - Ноя 2025</p>
+                </div>
+
+                <div class="cert-card fade-in">
+                    <div class="cert-icon">
+                        <i class="fas fa-file-word"></i>
+                    </div>
+                    <span class="cert-category">Office Tools</span>
+                    <h4>Getting Started with Microsoft Word</h4>
+                    <p class="en">Coursera Project - Nov 2025</p>
+                    <p class="ru">Проект Coursera - Ноя 2025</p>
+                </div>
+
+                <!-- Design & Marketing -->
+                <div class="cert-card fade-in">
+                    <div class="cert-icon">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <span class="cert-category">Design</span>
+                    <h4>Marketing Design with Easil</h4>
+                    <p class="en">Coursera Project - Nov 2025</p>
+                    <p class="ru">Проект Coursera - Ноя 2025</p>
+                </div>
+
+                <div class="cert-card fade-in">
+                    <div class="cert-icon">
+                        <i class="fas fa-paint-brush"></i>
+                    </div>
+                    <span class="cert-category">Design</span>
+                    <h4>How to create presentations using Canva</h4>
+                    <p class="en">Coursera Project - Nov 2025</p>
+                    <p class="ru">Проект Coursera - Ноя 2025</p>
+                </div>
+
+                <div class="cert-card fade-in">
+                    <div class="cert-icon">
+                        <i class="fas fa-object-group"></i>
+                    </div>
+                    <span class="cert-category">Design</span>
+                    <h4>Graphic design: pop your LinkedIn with 3D effect using Canva</h4>
+                    <p class="en">Coursera Project - Nov 2025</p>
+                    <p class="ru">Проект Coursera - Ноя 2025</p>
+                </div>
+
+                <!-- Google Tools -->
+                <div class="cert-card fade-in">
+                    <div class="cert-icon">
+                        <i class="fas fa-table"></i>
+                    </div>
+                    <span class="cert-category">Productivity</span>
+                    <h4>Create a Project Management Tracker using Google Sheets</h4>
+                    <p class="en">Coursera Project - Nov 2025</p>
+                    <p class="ru">Проект Coursera - Ноя 2025</p>
+                </div>
+
+                <div class="cert-card fade-in">
+                    <div class="cert-icon">
+                        <i class="fab fa-blogger"></i>
+                    </div>
+                    <span class="cert-category">Web Development</span>
+                    <h4>Creating a Free Business Page with Blogger</h4>
+                    <p class="en">Coursera Project - Nov 2025</p>
+                    <p class="ru">Проект Coursera - Ноя 2025</p>
+                </div>
+
+                <!-- Competitions & Sports -->
+                <div class="cert-card fade-in">
+                    <div class="cert-icon">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <span class="cert-category">Competition</span>
+                    <h4>PYCathlon Coding Competition</h4>
+                    <p class="en">Paris Dauphine University - Feb 2025</p>
+                    <p class="ru">Университет Париж-Дофин - Фев 2025</p>
+                </div>
+
+                <div class="cert-card fade-in">
+                    <div class="cert-icon">
+                        <i class="fas fa-running"></i>
+                    </div>
+                    <span class="cert-category">Sports</span>
+                    <h4>21km Semi-Marathon Finisher</h4>
+                    <p class="en">COMAR & NOURANE Marathons - 2025</p>
+                    <p class="ru">Марафоны COMAR & NOURANE - 2025</p>
+                </div>
+
+                <!-- Academic -->
+                <div class="cert-card fade-in">
+                    <div class="cert-icon">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <span class="cert-category">Academic</span>
+                    <h4>2nd Place Award - 3rd Grade</h4>
+                    <p class="en">High School Excellence - GPA: 16.24/20</p>
+                    <p class="ru">Отличник средней школы - Средний балл: 16,24/20</p>
+                </div>
+
+                <!-- Recommendation -->
+                <div class="cert-card fade-in">
+                    <div class="cert-icon">
+                        <i class="fas fa-file-signature"></i>
+                    </div>
+                    <span class="cert-category">Recommendation</span>
+                    <h4 class="en">Russian Language Recommendation</h4>
+                    <h4 class="ru">Рекомендация по русскому языку</h4>
+                    <p class="en">Tunisian Association of Russian Teachers</p>
+                    <p class="ru">Тунисская ассоциация преподавателей русского языка</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2 class="section-title en">Technical Skills</h2>
+                <h2 class="section-title ru">Технические навыки</h2>
+                <p class="section-subtitle en">
+                    Comprehensive skill set in programming and development tools
+                </p>
+                <p class="section-subtitle ru">
+                    Полный набор навыков в программировании и инструментах разработки
+                </p>
+            </div>
+
+            <div class="skills-grid">
+                <div class="skill-card fade-in">
+                    <div class="skill-category">
+                        <i class="fas fa-code"></i>
+                        <h3 class="en">Programming</h3>
+                        <h3 class="ru">Программирование</h3>
+                    </div>
+
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Python</span>
+                            <span class="skill-percent">90%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="90"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">HTML/CSS</span>
+                            <span class="skill-percent">100%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="100"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">JavaScript</span>
+                            <span class="skill-percent">76%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="76"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">PHP</span>
+                            <span class="skill-percent">82%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="82"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">SQL/Databases</span>
+                            <span class="skill-percent">86%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="86"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-card fade-in">
+                    <div class="skill-category">
+                        <i class="fas fa-tools"></i>
+                        <h3 class="en">Tools & Platforms</h3>
+                        <h3 class="ru">Инструменты и платформы</h3>
+                    </div>
+
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">WordPress</span>
+                            <span class="skill-percent">95%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="95"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Wix</span>
+                            <span class="skill-percent">90%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="90"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Microsoft Office</span>
+                            <span class="skill-percent">88%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="88"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Canva/Easil</span>
+                            <span class="skill-percent">92%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="92"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Git Version Control</span>
+                            <span class="skill-percent">70%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="70"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-card fade-in">
+                    <div class="skill-category">
+                        <i class="fas fa-language"></i>
+                        <h3 class="en">Languages</h3>
+                        <h3 class="ru">Языки</h3>
+                    </div>
+
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Arabic (Native)</span>
+                            <span class="skill-percent">100%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="100"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">French (B2)</span>
+                            <span class="skill-percent">85%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="85"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">English (B2)</span>
+                            <span class="skill-percent">85%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="85"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Russian (B1)</span>
+                            <span class="skill-percent">70%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="70"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Italian (A1)</span>
+                            <span class="skill-percent">40%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="40"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2 class="section-title en">My Projects</h2>
+                <h2 class="section-title ru">Мои проекты</h2>
+                <p class="section-subtitle en">
+                    Real-world applications showcasing my technical abilities
+                </p>
+                <p class="section-subtitle ru">
+                    Практические приложения, демонстрирующие мои технические способности
+                </p>
+            </div>
+
+            <div class="project-grid">
+                <div class="project-card fade-in">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                            alt="E-commerce Website">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">AI-Powered E-commerce Platform</h3>
+                        <p class="project-description en">
+                            Intelligent online store with personalized recommendations using machine learning
+                            algorithms,
+                            real-time inventory management, and automated customer service chatbot.
+                        </p>
+                        <p class="project-description ru">
+                            Интеллектуальный интернет-магазин с персонализированными рекомендациями на основе алгоритмов
+                            машинного обучения,
+                            управлением запасами в реальном времени и автоматизированным чат-ботом службы поддержки.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">Flask</span>
+                            <span class="tech-tag">MySQL</span>
+                            <span class="tech-tag">TensorFlow</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card fade-in">
+                    <div class="project-image">
+                        <img src="stock-market-analysis-dashbord.png" alt="Stock Analysis Tool">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Stock Market Analysis Dashboard</h3>
+                        <p class="project-description en">
+                            Advanced financial analysis platform with real-time stock tracking, predictive analytics,
+                            custom index construction, and interactive data visualizations.
+                        </p>
+                        <p class="project-description ru">
+                            Продвинутая платформа финансового анализа с отслеживанием акций в реальном времени,
+                            прогнозной аналитикой,
+                            построением пользовательских индексов и интерактивной визуализацией данных.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Pandas</span>
+                            <span class="tech-tag">Django</span>
+                            <span class="tech-tag">Chart.js</span>
+                            <span class="tech-tag">SQL</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card fade-in">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1531746790731-6c087fecd65a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                            alt="Educational Platform">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Smart Learning Management System</h3>
+                        <p class="project-description en">
+                            Adaptive educational platform that personalizes learning paths based on student performance,
+                            with progress tracking, interactive quizzes, and AI-powered recommendations.
+                        </p>
+                        <p class="project-description ru">
+                            Адаптивная образовательная платформа, которая персонализирует учебные пути на основе
+                            успеваемости студентов,
+                            с отслеживанием прогресса, интерактивными тестами и рекомендациями на основе ИИ.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">HTML/CSS</span>
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">PHP</span>
+                            <span class="tech-tag">MySQL</span>
+                            <span class="tech-tag">AI Integration</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="gallery">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2 class="section-title en">Gallery & Events</h2>
+                <h2 class="section-title ru">Галерея и мероприятия</h2>
+                <p class="section-subtitle en">
+                    Marathon achievements and Russian House cultural activities
+                </p>
+                <p class="section-subtitle ru">
+                    Достижения в марафонах и культурные мероприятия Русского дома
+                </p>
+            </div>
+
+            <div class="gallery-grid">
+                <div class="gallery-item fade-in">
+                    <img src="comar.jpg" alt="Marathon Running">
+                    <div class="gallery-overlay">
+                        <h4>COMAR 21km Marathon</h4>
+                        <p>Time: 1:59:36 | November 2025</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item fade-in">
+                    <img src="nourane.jpg" alt="Running Competition">
+                    <div class="gallery-overlay">
+                        <h4>NOURANE 21km Marathon</h4>
+                        <p>Time: 1:49:30 | October 2025</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item fade-in">
+                    <img src="russianevent.jpg" alt="Russian Cultural Event">
+                    <div class="gallery-overlay">
+                        <h4>Russian House Event - Cultural Workshop</h4>
+                        <p>Tunis, 2025 | Russian-Tunisian cultural exchange</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item fade-in">
+                    <img src="russianeventlearning.jpg" alt="Coding Competition">
+                    <div class="gallery-overlay">
+                        <h4>Russian House Event - Language Course</h4>
+                        <p>Tunis, 2025 | Russian language learning</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2 class="section-title en">Contact Information</h2>
+                <h2 class="section-title ru">Контактная информация</h2>
+                <p class="section-subtitle en">
+                    Get in touch for collaboration or opportunities
+                </p>
+                <p class="section-subtitle ru">
+                    Свяжитесь со мной для сотрудничества или карьерных возможностей
+                </p>
+            </div>
+
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item fade-in">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div>
+                            <h3 class="en">Email</h3>
+                            <h3 class="ru">Электронная почта</h3>
+                            <p>chahmiwalid1@gmail.com</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item fade-in">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div>
+                            <h3 class="en">Phone</h3>
+                            <h3 class="ru">Телефон</h3>
+                            <p>+216 21 857 197</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item fade-in">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div>
+                            <h3 class="en">Location</h3>
+                            <h3 class="ru">Местоположение</h3>
+                            <p class="en">Tunis, Tunisia</p>
+                            <p class="ru">Тунис, Тунис</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item fade-in">
+                        <div class="contact-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <div>
+                            <h3 class="en">Education</h3>
+                            <h3 class="ru">Образование</h3>
+                            <p class="en">Lycée Bardo - Computer Science</p>
+                            <p class="ru">Лицей Бардо - Информатика</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-form fade-in">
+                    <h3 class="en" style="margin-bottom: 25px;">Send a Message</h3>
+                    <h3 class="ru" style="margin-bottom: 25px;">Отправить сообщение</h3>
+
+                    <form>
+                        <div class="form-group">
+                            <label class="en" for="name">Your Name</label>
+                            <label class="ru" for="name">Ваше имя</label>
+                            <input type="text" id="name" class="form-control" placeholder="John Doe">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="en" for="email">Your Email</label>
+                            <label class="ru" for="email">Ваш email</label>
+                            <input type="email" id="email" class="form-control" placeholder="john@example.com">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="en" for="message">Your Message</label>
+                            <label class="ru" for="message">Ваше сообщение</label>
+                            <textarea id="message" class="form-control" rows="5"
+                                placeholder="Write your message here..."></textarea>
+                        </div>
+
+
+                        <button type="submit" class="btn">
+                            <span class="en">Send Message</span>
+                            <span class="ru">Отправить</span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Stylé -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <div class="footer-logo">
+                        <div class="logo-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <div class="footer-logo-text">
+                            <span class="en">Walid Chahmi</span>
+                            <span class="ru">Валид Шахми</span>
+                        </div>
+                    </div>
+                    <p class="footer-description en">
+                        Passionate computer science student seeking to pursue higher education
+                        in Russia. With 25+ certifications and exceptional academic achievements,
+                        ready to contribute to the field of technology and innovation.
+                    </p>
+                    <p class="footer-description ru">
+                        Увлеченный студент информатики, стремящийся получить высшее образование
+                        в России. Имея более 25 сертификатов и выдающиеся академические достижения,
+                        готов внести вклад в область технологий и инноваций.
+                    </p>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/walid-chahmi-6a394b279/" target="_blank"
+                            class="social-link">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="https://github.com/walidchahmi" target="_blank" class="social-link">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://t.me/+21621857197" target="_blank" class="social-link">
+                            <i class="fab fa-telegram"></i>
+                        </a>
+                        <a href="mailto:chahmiwalid1@gmail.com" class="social-link">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h3 class="footer-title en">Quick Links</h3>
+                    <h3 class="footer-title ru">Быстрые ссылки</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home" class="en">Home</a><a href="#home" class="ru">Главная</a></li>
+                        <li><a href="#about" class="en">About</a><a href="#about" class="ru">Обо мне</a></li>
+                        <li><a href="#certifications" class="en">Certifications</a><a href="#certifications"
+                                class="ru">Сертификаты</a></li>
+                        <li><a href="#skills" class="en">Skills</a><a href="#skills" class="ru">Навыки</a></li>
+                        <li><a href="#projects" class="en">Projects</a><a href="#projects" class="ru">Проекты</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h3 class="footer-title en">Information</h3>
+                    <h3 class="footer-title ru">Информация</h3>
+                    <ul class="footer-links">
+                        <li><a href="#gallery" class="en">Gallery</a><a href="#gallery" class="ru">Галерея</a></li>
+                        <li><a href="#contact" class="en">Contact</a><a href="#contact" class="ru">Контакты</a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr>
+
+            <div class="footer-bottom">
+                <p class="en">
+                    © 2025 Walid Chahmi. All rights reserved.
+                    Portfolio for Russian University Applications
+                    <span class="footer-heart">♥</span>
+                    Made with passion for computer science and Russian education
+                </p>
+                <p class="ru">
+                    © 2025 Валид Шахми. Все права защищены.
+                    Портфолио для заявок в российские университеты
+                    <span class="footer-heart">♥</span>
+                    Сделано с любовью к информатике и российскому образованию
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // ============================
+        //  THEME TOGGLE (Light/Dark)
+        // ============================
+        const themeToggle = document.getElementById('theme-toggle');
+        const body = document.body;
+
+        const applyTheme = (theme) => {
+            body.classList.toggle('dark-mode', theme === 'dark');
+            themeToggle.classList.toggle('active', theme === 'dark');
+            localStorage.setItem('theme', theme);
+        };
+
+        // Load saved theme
+        applyTheme(localStorage.getItem('theme') || 'light');
+
+        themeToggle?.addEventListener('click', () => {
+            const newTheme = body.classList.contains('dark-mode') ? 'light' : 'dark';
+            applyTheme(newTheme);
+        });
+
+        // ============================
+        //       LANGUAGE TOGGLE
+        // ============================
+        const enBtn = document.getElementById('en-btn');
+        const ruBtn = document.getElementById('ru-btn');
+
+        const applyLanguage = (lang) => {
+            body.classList.toggle('ru-lang', lang === 'ru'); // garde ça pour le russe
+            body.classList.toggle('en-lang', lang === 'en'); // <-- ajoute cette ligne pour l’anglais
+            enBtn?.classList.toggle('active', lang === 'en');
+            ruBtn?.classList.toggle('active', lang === 'ru');
+            localStorage.setItem('language', lang);
+        };
+
+
+        // Load saved language
+        applyLanguage(localStorage.getItem('language') || 'en');
+
+        enBtn?.addEventListener('click', () => applyLanguage('en'));
+        ruBtn?.addEventListener('click', () => applyLanguage('ru'));
+
+        // ============================
+        //      Smooth Scroll NAV
+        // ============================
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', (e) => {
+                e.preventDefault();
+                const target = document.querySelector(anchor.getAttribute('href'));
+                if (!target) return;
+
+                document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
+                anchor.classList.add('active');
+
+                window.scrollTo({
+                    top: target.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // ============================
+        //      FADE-IN ANIMATION 
+        // ============================
+        const fadeElements = document.querySelectorAll('.fade-in');
+
+        const fadeInOnScroll = () => {
+            fadeElements.forEach(el => {
+                const rect = el.getBoundingClientRect();
+                if (rect.top < window.innerHeight - 150) {
+                    el.classList.add('visible');
+                }
+            });
+        };
+
+        window.addEventListener('scroll', fadeInOnScroll);
+        window.addEventListener('load', fadeInOnScroll);
+
+        // ============================
+        //     SKILL BARS ANIMATION
+        // ============================
+        const animateSkillBars = () => {
+            document.querySelectorAll('.skill-progress').forEach(bar => {
+                const width = bar.dataset.width + '%';
+                bar.style.width = width;
+            });
+        };
+
+        document.addEventListener('DOMContentLoaded', () => {
+            fadeInOnScroll();
+
+            const skillsSection = document.getElementById('skills');
+            if (!skillsSection) return;
+
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        animateSkillBars();
+                        observer.disconnect();
+                    }
+                });
+            }, { threshold: 0.3 });
+
+            observer.observe(skillsSection);
+        });
+
+        // ============================
+        //        CONTACT FORM
+        // ============================
+        const formButton = document.querySelector('.btn');
+
+        formButton?.addEventListener('click', (e) => {
+            e.preventDefault();
+
+            const name = document.getElementById('name')?.value.trim();
+            const email = document.getElementById('email')?.value.trim();
+            const message = document.getElementById('message')?.value.trim();
+
+            if (name && email && message) {
+                const successText = body.classList.contains('ru-lang')
+                    ? 'Сообщение отправлено успешно! Я свяжусь с вами в ближайшее время.'
+                    : 'Message sent successfully! I will get back to you soon.';
+
+                alert(successText);
+
+                document.getElementById('name').value = '';
+                document.getElementById('email').value = '';
+                document.getElementById('message').value = '';
+
+            } else {
+                const errorText = body.classList.contains('ru-lang')
+                    ? 'Пожалуйста, заполните все поля.'
+                    : 'Please fill in all fields.';
+
+                alert(errorText);
+            }
+        });
+    </script>
+
+</body>
+
+</html>
