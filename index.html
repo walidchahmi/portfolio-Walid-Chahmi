@@ -122,45 +122,7 @@
         }
 
 
-        /* Hamburger menu pour mobile */
-        .menu-toggle {
-            display: none;
-            font-size: 1.8rem;
-            cursor: pointer;
-            color: var(--dark);
-        }
-        
-        /* Responsive pour mobile */
-        @media (max-width: 768px) {
-            .nav-links {
-                position: absolute;
-                top: 100%;
-                left: 0;
-                width: 100%;
-                background: var(--card-bg);
-                flex-direction: column;
-                gap: 20px;
-                padding: 20px 0;
-                box-shadow: var(--shadow);
-                max-height: 0;
-                overflow: hidden;
-                transition: max-height 0.4s ease;
-                z-index: 999;
-            }
-        
-            .nav-links.active {
-                max-height: 400px; /* Ajuste selon le nombre de liens */
-            }
-        
-            .menu-toggle {
-                display: block;
-            }
-        
-            /* Ajustement header-controls sur mobile */
-            .header-controls {
-                gap: 12px;
-            }
-        }
+       
         
                 /* =============== HEADER STYLÉ PREMIUM =============== */
         header {
@@ -2311,4 +2273,5 @@
 
 
 </html>
+
 
