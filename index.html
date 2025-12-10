@@ -1,57 +1,229 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="fr" dir="ltr">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Walid Chahmi | Portfolio pour Universités Russes</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Raleway:wght@300;400;500;600&display=swap"
-        rel="stylesheet">
-    <style>
-        :root {
-            --primary: #7C3AED;
-            /* Violet propre */
-            --secondary: #10B981;
-            /* Vert moderne */
-            --accent: #F59E0B;
-            /* Orange accent */
-            --dark: #0F172A;
-            /* Noir bleuté élégant */
-            --light: #F3F4F6;
-            /* Fond clair pro */
-            --gray: #6B7280;
-            /* Gris neutre professionnel */
-            --card-bg: #ffffff;
-            /* Blanc clean */
-            --header-bg: rgba(255, 255, 255, 0.15);
-            /* Glassmorphism léger */
-            --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
-            --shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
-            --radius: 16px;
-            --gradient: linear-gradient(135deg, #6d28d9 0%, #8B5CF6 100%);
+    <title>Walid Chahmi | Portfolio Développeur Web</title>
+    <meta name="description"
+        content="Portfolio de Walid Chahmi, étudiant en informatique spécialisé en développement web, avec plus de 25 certifications.">
+    <meta name="keywords"
+        content="portfolio, développeur web, informatique, tunisie, russie, machine learning, certifications">
+    <meta name="author" content="Walid Chahmi">
 
-            /* Background dynamique */
-            --bg-gradient-start: #616161;
-            /* Couleur initiale clair */
-            --bg-gradient-end: #ffffff;
+    <!-- Open Graph pour les réseaux sociaux -->
+    <meta property="og:title" content="Walid Chahmi | Portfolio Développeur Web">
+    <meta property="og:description"
+        content="Étudiant en informatique avec 25+ certifications, spécialisé en développement web et machine learning.">
+    <meta property="og:image" content="https://votresite.com/walid-profile.jpg">
+    <meta property="og:url" content="https://votresite.com">
+    <meta property="og:type" content="website">
+
+    <!-- Favicon -->
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💻</text></svg>">
+
+    <!-- Polices modernes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* Styles pour l'affiche de bienvenue */
+        .welcome-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(79, 157, 255, 0.95) 0%, rgba(124, 58, 237, 0.95) 100%);
+            z-index: 10000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.8s ease, visibility 0.8s ease;
         }
 
-        .dark-mode {
-            --primary: #A78BFA;
-            --secondary: #34D399;
-            --accent: #FBBF24;
-            --dark: #F9FAFB;
-            --light: #303236;
-            --gray: #9CA3AF;
-            --card-bg: #1F2937;
-            --header-bg: rgba(31, 41, 55, 0.85);
-            --gradient: linear-gradient(135deg, #A78BFA 0%, #8B5CF6 100%);
+        .welcome-overlay.show {
+            opacity: 1;
+            visibility: visible;
+        }
 
-            /* Background sombre pour dark mode */
-            --bg-gradient-start: #1F2937;
-            --bg-gradient-end: #797d85;
+        .welcome-card {
+            text-align: center;
+            transform: scale(0.5) rotate(-10deg);
+            transition: transform 1.2s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        .welcome-overlay.show .welcome-card {
+            transform: scale(1) rotate(0deg);
+        }
+
+        .welcome-icon {
+            width: 120px;
+            height: 120px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 3rem;
+            margin: 0 auto 30px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+            animation: iconFloat 3s ease-in-out infinite;
+        }
+
+        @keyframes iconFloat {
+
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        .welcome-title {
+            font-size: 3.5rem;
+            font-weight: 900;
+            margin-bottom: 15px;
+            color: white;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            letter-spacing: 2px;
+            animation: titleGlow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes titleGlow {
+            from {
+                text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            }
+
+            to {
+                text-shadow: 0 4px 30px rgba(255, 255, 255, 0.5);
+            }
+        }
+
+        .welcome-subtitle {
+            font-size: 1.8rem;
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 600;
+            animation: fadeInUp 1s ease forwards;
+            animation-delay: 0.5s;
+            opacity: 0;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Animation de disparition */
+        .welcome-overlay.hide {
+            opacity: 0;
+            visibility: hidden;
+            transform: scale(1.5);
+            transition: opacity 0.8s ease, visibility 0.8s ease, transform 0.8s ease;
+        }
+
+        /* Mode sombre adaptation */
+        .dark-mode .welcome-overlay {
+            background: linear-gradient(135deg, rgba(109, 174, 255, 0.95) 0%, rgba(159, 106, 239, 0.95) 100%);
+        }
+
+        /* Responsive pour mobile */
+        @media (max-width: 768px) {
+            .welcome-title {
+                font-size: 2.5rem;
+            }
+
+            .welcome-subtitle {
+                font-size: 1.4rem;
+            }
+
+            .welcome-icon {
+                width: 100px;
+                height: 100px;
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .welcome-title {
+                font-size: 2rem;
+                letter-spacing: 1px;
+            }
+
+            .welcome-subtitle {
+                font-size: 1.2rem;
+            }
+
+            .welcome-icon {
+                width: 80px;
+                height: 80px;
+                font-size: 2rem;
+            }
+        }
+
+        /* Variables CSS pour une meilleure maintenabilité */
+        :root {
+            --primary: #4F9DFF;
+            --secondary: #7C3AED;
+            --accent: #2DD4BF;
+            --accent-light: #5EEAD4;
+            --pink: #FF6B9D;
+            --dark: #0F1115;
+            --light: #FFFFFF;
+            --gray: #6B7280;
+            --gray-light: #F3F4F6;
+
+            /* Variables de couleur pour le mode clair/sombre */
+            --bg-color: #FFFFFF;
+            /* Fond blanc pur pour le mode clair */
+            --text-color: var(--dark);
+            --card-bg: rgba(255, 255, 255, 0.9);
+            --header-bg: rgba(255, 255, 255, 0.8);
+            --footer-bg: #0F1115;
+
+            --transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+            --transition-slow: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+            --shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+            --shadow-hover: 0 30px 60px rgba(0, 0, 0, 0.12);
+            --radius: 24px;
+            --radius-xl: 30px;
+            --gradient: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            --gradient-accent: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
+        }
+
+        /* Mode sombre */
+        .dark-mode {
+            --primary: #6DAEFF;
+            --secondary: #9F6AEF;
+            --accent: #3EE5D0;
+
+            /* Variables de couleur pour le mode sombre */
+            --bg-color: #121212;
+            /* Fond très sombre et simple */
+            --text-color: var(--light);
+            /* Texte clair pour la lisibilité */
+            --card-bg: rgba(30, 30, 30, 0.9);
+            /* Cartes sombres mais pas noires */
+            --header-bg: rgba(18, 18, 18, 0.8);
+            --footer-bg: #0a0a0a;
         }
 
         * {
@@ -67,42 +239,31 @@
         body {
             margin: 0;
             padding: 0;
-            /* Dégradé dynamique selon mode */
-            background: linear-gradient(135deg, var(--bg-gradient-start), var(--bg-gradient-end));
-            background-size: 300% 300%;
-            animation: smoothGradient 18s ease-in-out infinite;
-            position: relative;
+            font-family: 'Inter', sans-serif;
+            color: var(--text-color);
+            /* Utilisation de la variable de texte */
+            line-height: 1.6;
             overflow-x: hidden;
-            transition: background 0.6s ease-in-out;
+            position: relative;
+            background-color: var(--bg-color);
+            /* Fond simple */
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
 
-        /* Texture premium */
+        /* Texture premium très légère */
         body::after {
             content: "";
             position: fixed;
-            inset: 0;
-            background-image: url("https://grainy-gradients.vercel.app/noise.svg");
-            opacity: 0.08;
-            mix-blend-mode: soft-light;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E");
+            z-index: -1;
             pointer-events: none;
-            z-index: 9999;
         }
 
-        /* Animation du dégradé */
-        @keyframes smoothGradient {
-            0% {
-                background-position: 0% 50%;
-            }
-
-            50% {
-                background-position: 100% 50%;
-            }
-
-            100% {
-                background-position: 0% 50%;
-            }
-        }
-
+        /* Typographie */
         h1,
         h2,
         h3,
@@ -112,6 +273,9 @@
             font-family: 'Poppins', sans-serif;
             font-weight: 700;
             line-height: 1.2;
+            margin-bottom: 1rem;
+            color: var(--text-color);
+            /* Utilisation de la variable de texte */
         }
 
         .container {
@@ -121,27 +285,25 @@
             padding: 0 20px;
         }
 
-
-
-        /* =============== HEADER STYLÉ PREMIUM =============== */
+        /* Header ultra-moderne avec glassmorphism */
         header {
             background: var(--header-bg);
-            backdrop-filter: blur(15px) saturate(180%);
-            -webkit-backdrop-filter: blur(15px) saturate(180%);
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
             position: fixed;
             top: 0;
             width: 100%;
             z-index: 1000;
             padding: 1.2rem 0;
-            transition: 0.35s ease;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+            transition: var(--transition);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
         }
 
-        /* Header apparition douce */
+        /* Header avec effet d'apparition */
         header {
             opacity: 0;
             transform: translateY(-20px);
-            animation: headerFade 0.8s ease forwards;
+            animation: headerFade 1s ease forwards;
         }
 
         @keyframes headerFade {
@@ -157,17 +319,18 @@
             align-items: center;
         }
 
-        /* =================== LOGO =================== */
+        /* Logo moderne */
         .logo {
             display: flex;
             align-items: center;
             gap: 14px;
             transform: translateY(0);
-            transition: 0.3s ease;
+            transition: var(--transition);
+            text-decoration: none;
         }
 
         .logo:hover {
-            transform: translateY(-2px);
+            transform: translateY(-3px);
         }
 
         .logo-icon {
@@ -180,12 +343,13 @@
             justify-content: center;
             color: white;
             font-size: 1.25rem;
-            box-shadow: 0 6px 18px rgba(124, 58, 237, 0.35);
-            transition: 0.3s ease;
+            box-shadow: 0 10px 20px rgba(79, 157, 255, 0.3);
+            transition: var(--transition);
         }
 
-        .logo-icon:hover {
-            box-shadow: 0 8px 22px rgba(124, 58, 237, 0.45);
+        .logo:hover .logo-icon {
+            box-shadow: 0 15px 30px rgba(79, 157, 255, 0.4);
+            transform: rotate(5deg) scale(1.05);
         }
 
         .logo-text {
@@ -194,9 +358,10 @@
             background: var(--gradient);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
-        /* =================== NAVIGATION =================== */
+        /* Navigation moderne */
         .nav-links {
             display: flex;
             gap: 2.4rem;
@@ -206,13 +371,13 @@
 
         .nav-links a {
             text-decoration: none;
-            color: var(--dark);
+            color: var(--text-color);
+            /* Utilisation de la variable de texte */
             font-weight: 600;
             font-size: 1.05rem;
             position: relative;
             padding: 10px 0;
-            transition: 0.35s ease;
-            letter-spacing: 0.3px;
+            transition: var(--transition);
         }
 
         .nav-links a::after {
@@ -224,7 +389,7 @@
             height: 3px;
             background: var(--gradient);
             border-radius: 4px;
-            transition: 0.35s ease;
+            transition: var(--transition);
         }
 
         .nav-links a:hover::after,
@@ -238,84 +403,107 @@
             transform: translateY(-2px);
         }
 
-        /* =================== CONTROLS =================== */
+        /* Contrôles modernes */
         .header-controls {
             display: flex;
             align-items: center;
             gap: 18px;
         }
 
-        /* ======= THEME TOGGLE ======= */
+        /* Theme Toggle moderne */
         .theme-toggle {
-            width: 52px;
-            height: 28px;
-            background: var(--gray);
+            width: 60px;
+            height: 32px;
+            background: rgba(0, 0, 0, 0.1);
             border-radius: 50px;
             padding: 3px;
             cursor: pointer;
             position: relative;
-            transition: 0.35s ease;
-            box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.22);
+            transition: var(--transition);
+            border: 1px solid rgba(0, 0, 0, 0.1);
         }
 
         .theme-toggle.active {
-            background: var(--primary);
+            background: var(--gradient);
         }
 
         .theme-toggle-circle {
-            width: 22px;
-            height: 22px;
+            width: 26px;
+            height: 26px;
             background: white;
             border-radius: 50%;
             position: absolute;
             left: 3px;
             top: 3px;
-            transition: 0.35s ease;
+            transition: var(--transition);
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 0.8rem;
-            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         }
 
         .theme-toggle.active .theme-toggle-circle {
-            left: calc(100% - 25px);
+            left: calc(100% - 29px);
         }
 
-        /* ======= LANGUAGE BUTTONS ======= */
+        /* Boutons de langue modernes */
         .lang-btn {
-            background: transparent;
-            border: 2px solid var(--primary);
-            color: var(--primary);
-            padding: 6px 16px;
+            background: rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            color: var(--text-color);
+            /* Utilisation de la variable de texte */
+            padding: 8px 18px;
             border-radius: 30px;
             cursor: pointer;
             font-weight: 700;
-            transition: 0.3s ease;
+            transition: var(--transition);
             display: flex;
             align-items: center;
             gap: 7px;
-            letter-spacing: 0.4px;
+            backdrop-filter: blur(10px);
         }
 
         .lang-btn:hover {
-            background: var(--primary);
-            color: white;
+            background: rgba(0, 0, 0, 0.1);
             transform: translateY(-2px);
         }
 
         .lang-btn.active {
-            background: var(--primary);
+            background: var(--gradient);
             color: white;
-            box-shadow: 0 6px 18px rgba(124, 58, 237, 0.35);
+            box-shadow: 0 10px 20px rgba(79, 157, 255, 0.3);
         }
 
+        /* Menu mobile */
+        .mobile-menu-btn {
+            display: none;
+            background: rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            color: var(--text-color);
+            /* Utilisation de la variable de texte */
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: var(--transition);
+            backdrop-filter: blur(10px);
+        }
 
-        /* Hero Section */
+        .mobile-menu-btn:hover {
+            background: rgba(0, 0, 0, 0.1);
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section ultra-moderne */
         .hero {
             padding: 180px 0 100px;
             position: relative;
             overflow: hidden;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
         }
 
         .hero-bg {
@@ -324,52 +512,158 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, rgba(124, 58, 237, 0.05) 0%, rgba(16, 185, 129, 0.03) 100%);
+            background: rgba(0, 0, 0, 0.02);
+            backdrop-filter: blur(10px);
             z-index: -1;
         }
 
         .hero-content {
-            max-width: 800px;
-            text-align: center;
+            max-width: 1200px;
             margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .hero-text {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease forwards;
+            animation-delay: 0.2s;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .hero-badge {
             display: inline-block;
             background: var(--gradient);
             color: white;
-            padding: 8px 20px;
+            padding: 10px 25px;
             border-radius: 30px;
             font-weight: 600;
             font-size: 0.9rem;
             margin-bottom: 25px;
-            box-shadow: 0 5px 15px rgba(124, 58, 237, 0.2);
+            box-shadow: 0 10px 20px rgba(79, 157, 255, 0.2);
+            backdrop-filter: blur(10px);
         }
 
         .hero-title {
-            font-size: 3.5rem;
+            font-size: 4.5rem;
             margin-bottom: 20px;
             background: var(--gradient);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            font-weight: 800;
+            line-height: 1.1;
         }
 
         .hero-subtitle {
-            font-size: 1.3rem;
-            color: var(--gray);
+            font-size: 1.4rem;
+            color: var(--text-color);
+            /* Utilisation de la variable de texte */
             margin-bottom: 40px;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
+            opacity: 0.8;
+            line-height: 1.6;
         }
 
+        .hero-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--gradient);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1rem;
+            text-decoration: none;
+            box-shadow: 0 10px 20px rgba(79, 157, 255, 0.3);
+            transition: var(--transition);
+        }
+
+        .hero-cta:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(79, 157, 255, 0.4);
+        }
+
+        /* Photo de profil moderne */
+        .hero-image {
+            opacity: 0;
+            transform: translateX(30px);
+            animation: fadeInRight 1s ease forwards;
+            animation-delay: 0.4s;
+            position: relative;
+        }
+
+        @keyframes fadeInRight {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .photo-frame {
+            width: 400px;
+            height: 400px;
+            border-radius: 50%;
+            border: 8px solid rgba(255, 255, 255, 0.8);
+            overflow: hidden;
+            background-color: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            position: relative;
+            transition: var(--transition);
+        }
+
+        .photo-frame:hover {
+            transform: scale(1.05);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+        }
+
+        .photo-frame::before {
+            content: "";
+            position: absolute;
+            top: -5px;
+            left: -5px;
+            right: -5px;
+            bottom: -5px;
+            background: var(--gradient);
+            border-radius: 50%;
+            z-index: -1;
+            opacity: 0.7;
+        }
+
+        .photo-frame::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 70% 30%, rgba(255, 255, 255, 0.3), transparent 60%);
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        #profileImage {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: relative;
+            z-index: 0;
+        }
+
+        /* Stats modernes */
         .hero-stats {
             display: flex;
-            justify-content: center;
-            gap: 40px;
+            gap: 30px;
             margin-top: 50px;
-            flex-wrap: wrap;
         }
 
         .stat-box {
@@ -377,14 +671,15 @@
             padding: 25px;
             background: var(--card-bg);
             border-radius: var(--radius);
-            box-shadow: var(--shadow);
-            min-width: 150px;
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            min-width: 120px;
             transition: var(--transition);
         }
 
         .stat-box:hover {
             transform: translateY(-10px);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            box-shadow: var(--shadow-hover);
         }
 
         .stat-number {
@@ -398,48 +693,65 @@
         }
 
         .stat-label {
-            color: var(--gray);
+            color: var(--text-color);
+            /* Utilisation de la variable de texte */
             font-size: 0.9rem;
             font-weight: 500;
+            opacity: 0.8;
         }
 
-        /* Sections */
+        /* Sections modernes */
         section {
             padding: 100px 0;
+            position: relative;
         }
 
         .section-header {
             text-align: center;
             margin-bottom: 60px;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .section-header.visible {
+            opacity: 1;
+            transform: translateY(0);
+            transition: var(--transition-slow);
         }
 
         .section-title {
-            font-size: 2.5rem;
+            font-size: 3.5rem;
             margin-bottom: 15px;
             position: relative;
             display: inline-block;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
-        .section-title:after {
+        .section-title::after {
             content: '';
             position: absolute;
             bottom: -10px;
             left: 50%;
             transform: translateX(-50%);
-            width: 70px;
+            width: 80px;
             height: 4px;
             background: var(--gradient);
             border-radius: 2px;
         }
 
         .section-subtitle {
-            color: var(--gray);
-            font-size: 1.1rem;
+            color: var(--text-color);
+            /* Utilisation de la variable de texte */
+            font-size: 1.2rem;
             max-width: 600px;
             margin: 0 auto;
+            opacity: 0.8;
         }
 
-        /* About */
+        /* About Section moderne */
         .about-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -449,6 +761,14 @@
 
         .about-image {
             position: relative;
+            opacity: 0;
+            transform: translateX(-30px);
+        }
+
+        .about-image.visible {
+            opacity: 1;
+            transform: translateX(0);
+            transition: var(--transition-slow);
         }
 
         .profile-img {
@@ -470,17 +790,34 @@
             color: white;
             padding: 15px 25px;
             border-radius: var(--radius);
-            box-shadow: 0 10px 25px rgba(124, 58, 237, 0.3);
+            box-shadow: 0 15px 30px rgba(79, 157, 255, 0.3);
+        }
+
+        .about-text {
+            opacity: 0;
+            transform: translateX(30px);
+        }
+
+        .about-text.visible {
+            opacity: 1;
+            transform: translateX(0);
+            transition: var(--transition-slow);
+            transition-delay: 0.2s;
         }
 
         .about-text h3 {
             font-size: 2rem;
             margin-bottom: 20px;
+            color: var(--text-color);
+            /* Utilisation de la variable de texte */
         }
 
         .about-text p {
             margin-bottom: 25px;
-            color: var(--gray);
+            color: var(--text-color);
+            /* Utilisation de la variable de texte */
+            opacity: 0.9;
+            line-height: 1.7;
         }
 
         .languages-grid {
@@ -496,8 +833,15 @@
             gap: 12px;
             padding: 12px 20px;
             background: var(--card-bg);
-            border-radius: 12px;
-            box-shadow: 0 5px 15px rgba(65, 64, 64, 0.05);
+            border-radius: var(--radius);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+        }
+
+        .language-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
         }
 
         .language-flag {
@@ -514,9 +858,9 @@
             object-fit: cover;
         }
 
-        /* Certifications */
+        /* Certifications Section moderne */
         .certifications {
-            background: linear-gradient(135deg, rgba(124, 58, 237, 0) 0%, rgba(16, 185, 134, 0) 100%);
+            background: rgba(0, 0, 0, 0.02);
         }
 
         .cert-grid {
@@ -529,32 +873,58 @@
             background: var(--card-bg);
             border-radius: var(--radius);
             padding: 30px;
-            box-shadow: var(--shadow);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(0, 0, 0, 0.05);
             transition: var(--transition);
-            border-left: 5px solid var(--primary);
+            position: relative;
+            overflow: hidden;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .cert-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+            transition: var(--transition-slow);
+        }
+
+        .cert-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: var(--gradient);
         }
 
         .cert-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+            box-shadow: var(--shadow-hover);
         }
 
         .cert-icon {
             width: 60px;
             height: 60px;
             background: var(--gradient);
-            border-radius: 15px;
+            border-radius: var(--radius);
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
             font-size: 1.5rem;
             margin-bottom: 20px;
+            box-shadow: 0 10px 20px rgba(79, 157, 255, 0.2);
+            transition: var(--transition);
+        }
+
+        .cert-card:hover .cert-icon {
+            transform: rotate(5deg) scale(1.05);
         }
 
         .cert-category {
             display: inline-block;
-            background: rgba(124, 58, 237, 0.1);
+            background: rgba(79, 157, 255, 0.1);
             color: var(--primary);
             padding: 5px 15px;
             border-radius: 20px;
@@ -566,15 +936,23 @@
         .cert-card h4 {
             margin-bottom: 10px;
             font-size: 1.2rem;
+            color: var(--text-color);
+            /* Utilisation de la variable de texte */
         }
 
         .cert-card p {
-            color: var(--gray);
+            color: var(--text-color);
+            /* Utilisation de la variable de texte */
             font-size: 0.95rem;
             margin-bottom: 15px;
+            opacity: 0.8;
         }
 
-        /* Skills */
+        /* Skills Section moderne */
+        .skills {
+            background: rgba(0, 0, 0, 0.02);
+        }
+
         .skills-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -585,7 +963,22 @@
             background: var(--card-bg);
             border-radius: var(--radius);
             padding: 30px;
-            box-shadow: var(--shadow);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .skill-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+            transition: var(--transition-slow);
+        }
+
+        .skill-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
         }
 
         .skill-category {
@@ -597,7 +990,10 @@
 
         .skill-category i {
             font-size: 1.8rem;
-            color: var(--primary);
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .skill-item {
@@ -612,6 +1008,8 @@
 
         .skill-name {
             font-weight: 600;
+            color: var(--text-color);
+            /* Utilisation de la variable de texte */
         }
 
         .skill-percent {
@@ -634,9 +1032,9 @@
             transition: width 1.5s ease-in-out;
         }
 
-        /* Projects */
+        /* Projects Section moderne */
         .projects {
-            background: linear-gradient(135deg, rgba(124, 58, 237, 0.03) 0%, rgba(16, 185, 129, 0.02) 100%);
+            background: rgba(0, 0, 0, 0.02);
         }
 
         .project-grid {
@@ -649,18 +1047,28 @@
             background: var(--card-bg);
             border-radius: var(--radius);
             overflow: hidden;
-            box-shadow: var(--shadow);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(0, 0, 0, 0.05);
             transition: var(--transition);
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .project-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+            transition: var(--transition-slow);
         }
 
         .project-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            box-shadow: var(--shadow-hover);
         }
 
         .project-image {
             height: 200px;
             overflow: hidden;
+            position: relative;
         }
 
         .project-image img {
@@ -671,7 +1079,7 @@
         }
 
         .project-card:hover .project-image img {
-            transform: scale(1.1);
+            transform: scale(1.05);
         }
 
         .project-content {
@@ -681,12 +1089,16 @@
         .project-title {
             font-size: 1.3rem;
             margin-bottom: 10px;
+            color: var(--text-color);
+            /* Utilisation de la variable de texte */
         }
 
         .project-description {
-            color: var(--gray);
+            color: var(--text-color);
+            /* Utilisation de la variable de texte */
             margin-bottom: 20px;
             font-size: 0.95rem;
+            opacity: 0.8;
         }
 
         .project-tech {
@@ -697,12 +1109,18 @@
         }
 
         .tech-tag {
-            background: rgba(124, 58, 237, 0.1);
+            background: rgba(79, 157, 255, 0.1);
             color: var(--primary);
             padding: 5px 12px;
             border-radius: 20px;
             font-size: 0.8rem;
             font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .tech-tag:hover {
+            background: rgba(79, 157, 255, 0.2);
+            transform: translateY(-2px);
         }
 
         .project-links {
@@ -722,11 +1140,15 @@
         }
 
         .project-link:hover {
-            color: var(--secondary);
+            color: var(--accent);
             transform: translateY(-3px);
         }
 
-        /* Gallery */
+        /* Gallery Section moderne */
+        .gallery {
+            background: rgba(0, 0, 0, 0.02);
+        }
+
         .gallery-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -739,6 +1161,20 @@
             overflow: hidden;
             height: 250px;
             cursor: pointer;
+            transition: var(--transition);
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .gallery-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+            transition: var(--transition-slow);
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.02);
+            box-shadow: var(--shadow-hover);
         }
 
         .gallery-item img {
@@ -768,12 +1204,15 @@
             transform: translateY(0);
         }
 
-        /* Contact */
+        /* Contact Section moderne */
+        .contact {
+            background: rgba(0, 0, 0, 0.02);
+        }
+
         .contact-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 60px;
-            flex-wrap: wrap;
         }
 
         .contact-info {
@@ -789,77 +1228,57 @@
             padding: 20px;
             background: var(--card-bg);
             border-radius: var(--radius);
-            box-shadow: var(--shadow);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(0, 0, 0, 0.05);
             transition: var(--transition);
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .contact-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+            transition: var(--transition-slow);
         }
 
         .contact-item:hover {
             transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            box-shadow: var(--shadow);
         }
 
         .contact-icon {
             width: 50px;
             height: 50px;
             background: var(--gradient);
-            border-radius: 12px;
+            border-radius: var(--radius);
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
             font-size: 1.2rem;
+            box-shadow: 0 10px 20px rgba(79, 157, 255, 0.2);
+            transition: var(--transition);
+        }
+
+        .contact-item:hover .contact-icon {
+            transform: rotate(5deg) scale(1.05);
         }
 
         .contact-form {
             background: var(--card-bg);
             padding: 40px;
             border-radius: var(--radius);
-            box-shadow: var(--shadow);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            opacity: 0;
+            transform: translateY(30px);
         }
 
-        .contact-form .form-group {
-            display: flex;
-            flex-direction: column;
-            margin-bottom: 20px;
+        .contact-form.visible {
+            opacity: 1;
+            transform: translateY(0);
+            transition: var(--transition-slow);
         }
-
-        .contact-form label {
-            margin-bottom: 8px;
-            font-weight: 500;
-        }
-
-        .contact-form input,
-        .contact-form textarea {
-            padding: 12px 15px;
-            border: 1px solid var(--gray);
-            border-radius: var(--radius);
-            background: var(--light);
-            color: var(--dark);
-            transition: var(--transition);
-        }
-
-        .contact-form input:focus,
-        .contact-form textarea:focus {
-            border-color: var(--primary);
-            outline: none;
-        }
-
-        .contact-form .btn {
-            padding: 12px 25px;
-            background: var(--gradient);
-            border: none;
-            border-radius: var(--radius);
-            color: white;
-            font-weight: 600;
-            cursor: pointer;
-            transition: var(--transition);
-        }
-
-        .contact-form .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
-        }
-
 
         .form-group {
             margin-bottom: 25px;
@@ -869,16 +1288,19 @@
             display: block;
             margin-bottom: 8px;
             font-weight: 600;
+            color: var(--text-color);
+            /* Utilisation de la variable de texte */
         }
 
         .form-control {
             width: 100%;
             padding: 15px;
-            border: 2px solid rgba(0, 0, 0, 0.1);
-            border-radius: 12px;
-            background: var(--light);
-            color: var(--dark);
-            font-family: 'Raleway', sans-serif;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            border-radius: var(--radius);
+            background: rgba(255, 255, 255, 0.7);
+            color: var(--text-color);
+            /* Utilisation de la variable de texte */
+            font-family: 'Inter', sans-serif;
             font-size: 1rem;
             transition: var(--transition);
         }
@@ -886,6 +1308,8 @@
         .form-control:focus {
             outline: none;
             border-color: var(--primary);
+            background: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 0 0 3px rgba(79, 157, 255, 0.1);
         }
 
         .btn {
@@ -893,24 +1317,24 @@
             background: var(--gradient);
             color: white;
             padding: 15px 35px;
-            border-radius: 12px;
+            border-radius: var(--radius);
             border: none;
             font-weight: 600;
             font-size: 1rem;
             cursor: pointer;
             transition: var(--transition);
             text-decoration: none;
-            box-shadow: 0 5px 15px rgba(124, 58, 237, 0.3);
+            box-shadow: 0 10px 20px rgba(79, 157, 255, 0.2);
         }
 
         .btn:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(124, 58, 237, 0.4);
+            box-shadow: 0 15px 30px rgba(79, 157, 255, 0.3);
         }
 
-        /* Footer Stylé */
+        /* Footer moderne */
         footer {
-            background: var(--light);
+            background: var(--footer-bg);
             color: white;
             padding: 80px 0 30px;
             position: relative;
@@ -933,14 +1357,14 @@
         .footer-logo-text {
             font-size: 1.8rem;
             font-weight: 800;
-            background: linear-gradient(135deg, #8e6bf8 0%, #8B5CF6 100%);
+            background: var(--gradient);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
 
         .footer-description {
-            color: #595b5f;
+            color: rgba(255, 255, 255, 0.7);
             margin-bottom: 30px;
             line-height: 1.8;
         }
@@ -953,26 +1377,26 @@
         .social-link {
             width: 45px;
             height: 45px;
-            background: #3f3f41;
-            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: var(--radius);
             display: flex;
             align-items: center;
             justify-content: center;
-            color: rgb(255, 255, 255);
+            color: white;
             font-size: 1.2rem;
             transition: var(--transition);
             text-decoration: none;
         }
 
         .social-link:hover {
-            background: var(--primary);
+            background: var(--gradient);
             transform: translateY(-5px);
         }
 
         .footer-title {
             font-size: 1.3rem;
             margin-bottom: 25px;
-            color: #598ffa;
+            color: white;
         }
 
         .footer-links {
@@ -984,7 +1408,7 @@
         }
 
         .footer-links a {
-            color: #5f8ea7;
+            color: rgba(255, 255, 255, 0.7);
             text-decoration: none;
             transition: var(--transition);
         }
@@ -997,13 +1421,13 @@
         .footer-bottom {
             text-align: center;
             padding-top: 30px;
-            border-top: 1px solid #595b5f;
-            color: #5d7194;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.7);
             font-size: 0.9rem;
         }
 
         .footer-heart {
-            color: var(--secondary);
+            color: var(--accent);
             animation: heartbeat 1.5s infinite;
         }
 
@@ -1019,8 +1443,13 @@
             }
         }
 
-        /* Responsive */
+        /* Responsive Design */
         @media (max-width: 992px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 40px;
+            }
 
             .about-content,
             .contact-content {
@@ -1032,17 +1461,50 @@
             }
 
             .nav-links {
-                display: none;
+                position: fixed;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background: var(--card-bg);
+                backdrop-filter: blur(20px);
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: var(--shadow);
+                transform: translateX(-100%);
+                transition: transform 0.3s ease;
+                z-index: 999;
+                border-radius: 0 0 var(--radius) var(--radius);
+                display: flex;
+            }
+
+            .nav-links.active {
+                transform: translateX(0);
+            }
+
+            .nav-links li {
+                margin: 10px 0;
+            }
+
+            .mobile-menu-btn {
+                display: flex;
+                align-items: center;
+                justify-content: center;
             }
 
             .hero-title {
-                font-size: 2.8rem;
+                font-size: 3.5rem;
+            }
+
+            .photo-frame {
+                width: 300px;
+                height: 300px;
             }
         }
 
         @media (max-width: 768px) {
             .hero-stats {
-                gap: 20px;
+                justify-content: center;
+                flex-wrap: wrap;
             }
 
             .stat-box {
@@ -1051,7 +1513,7 @@
             }
 
             .section-title {
-                font-size: 2rem;
+                font-size: 2.5rem;
             }
 
             .footer-content {
@@ -1062,6 +1524,10 @@
             .languages-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
+
+            .hero-title {
+                font-size: 3rem;
+            }
         }
 
         @media (max-width: 576px) {
@@ -1070,7 +1536,7 @@
             }
 
             .hero-title {
-                font-size: 2.2rem;
+                font-size: 2.5rem;
             }
 
             section {
@@ -1086,6 +1552,11 @@
             .languages-grid {
                 grid-template-columns: 1fr;
             }
+
+            .photo-frame {
+                width: 250px;
+                height: 250px;
+            }
         }
 
         /* Animations */
@@ -1100,8 +1571,8 @@
             transform: translateY(0);
         }
 
-        /* Par défaut : afficher anglais, cacher russe */
-        .en {
+        /* Gestion des langues */
+        .fr {
             display: block;
         }
 
@@ -1109,8 +1580,7 @@
             display: none;
         }
 
-        /* Mode russe */
-        body.ru-lang .en {
+        body.ru-lang .fr {
             display: none;
         }
 
@@ -1118,195 +1588,273 @@
             display: block;
         }
 
-        /* Mode anglais */
-        body.en-lang .en {
+        body.fr-lang .fr {
             display: block;
         }
 
-        body.en-lang .ru {
+        body.fr-lang .ru {
             display: none;
         }
 
-        .photo-frame {
-            width: 280px;
-            height: 280px;
-            border-radius: 50%;
-            border: 8px solid white;
-            overflow: hidden;
-            background-color: #f5f5f5;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
-            margin: 0 auto 30px auto;
-            /* ← CENTRAGE ICI */
+        /* Notification moderne */
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 15px 25px;
+            border-radius: var(--radius);
+            color: white;
+            font-weight: 600;
+            box-shadow: var(--shadow);
+            z-index: 10000;
+            transform: translateX(100%);
+            transition: transform 0.3s ease;
+        }
+
+        .notification.success {
+            background: var(--gradient-accent);
+        }
+
+        .notification.error {
+            background: linear-gradient(135deg, #F43F5E 0%, #E11D48 100%);
+        }
+
+        .notification.show {
+            transform: translateX(0);
+        }
+
+        /* Scroll progress bar */
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            background: var(--gradient);
+            z-index: 10000;
+            transition: width 0.2s ease;
+        }
+
+        /* Loading animation */
+        .loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--bg-color);
             display: flex;
             justify-content: center;
             align-items: center;
+            z-index: 10001;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
         }
 
-        #profileImage {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+        .loader.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .loader-circle {
+            width: 50px;
+            height: 50px;
+            border: 3px solid rgba(255, 255, 255, 0.1);
+            border-top: 3px solid var(--primary);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
         }
     </style>
 </head>
 
 <body>
-    <!-- Header Stylé -->
+    <div class="welcome-overlay" id="welcomeOverlay">
+        <div class="welcome-card">
+            <div class="welcome-icon">
+                <i class="fas fa-graduation-cap"></i>
+            </div>
+            <h2 class="welcome-title">
+                <span class="fr">Bienvenue Dans Mon Portfolio</span>
+                <span class="ru">Добро пожаловать в мое портфолио</span>
+            </h2>
+            <div class="welcome-subtitle">
+                <span class="fr">Walid Chahmi</span>
+                <span class="ru">Валид Шахми</span>
+            </div>
+        </div>
+    </div>
+    <!-- Loader -->
+    <div class="loader" id="loader">
+        <div class="loader-circle"></div>
+    </div>
+
+    <!-- Scroll progress bar -->
+    <div class="scroll-progress" id="scrollProgress"></div>
+
+    <!-- Header Ultra-Moderne -->
     <header>
         <div class="container header-container">
-            <div class="logo">
+            <a href="#home" class="logo">
                 <div class="logo-icon">
                     <i class="fas fa-graduation-cap"></i>
                 </div>
                 <div class="logo-text">
-                    <span class="en">Walid Chahmi</span>
+                    <span class="fr">Walid Chahmi</span>
                     <span class="ru">Валид Шахми</span>
                 </div>
-            </div>
+            </a>
 
-            <ul class="nav-links">
+            <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Menu">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <ul class="nav-links" id="nav-links">
                 <li>
-                    <a href="#home" class="en active">Home</a>
+                    <a href="#home" class="fr active">Accueil</a>
                     <a href="#home" class="ru active">Главная</a>
                 </li>
-
                 <li>
-                    <a href="#about" class="en">About</a>
+                    <a href="#about" class="fr">À propos</a>
                     <a href="#about" class="ru">Обо мне</a>
                 </li>
-
                 <li>
-                    <a href="#certifications" class="en">Certifications</a>
+                    <a href="#certifications" class="fr">Certifications</a>
                     <a href="#certifications" class="ru">Сертификаты</a>
                 </li>
-
                 <li>
-                    <a href="#skills" class="en">Skills</a>
+                    <a href="#skills" class="fr">Compétences</a>
                     <a href="#skills" class="ru">Навыки</a>
                 </li>
-
                 <li>
-                    <a href="#projects" class="en">Projects</a>
+                    <a href="#projects" class="fr">Projets</a>
                     <a href="#projects" class="ru">Проекты</a>
                 </li>
-
                 <li>
-                    <a href="#gallery" class="en">Gallery</a>
+                    <a href="#gallery" class="fr">Galerie</a>
                     <a href="#gallery" class="ru">Галерея</a>
                 </li>
-
                 <li>
-                    <a href="#contact" class="en">Contact</a>
+                    <a href="#contact" class="fr">Contact</a>
                     <a href="#contact" class="ru">Контакты</a>
                 </li>
             </ul>
 
             <div class="header-controls">
-                <div class="theme-toggle" id="theme-toggle">
+                <div class="theme-toggle" id="theme-toggle" aria-label="Basculer le thème">
                     <div class="theme-toggle-circle">
                         <i class="fas fa-moon"></i>
                     </div>
                 </div>
 
-                <button class="lang-btn" id="en-btn">
-                    <i class="fas fa-globe"></i> EN
+                <button class="lang-btn" id="fr-btn" aria-label="Français">
+                    <i class="fas fa-globe"></i> FR
                 </button>
 
-                <button class="lang-btn" id="ru-btn">
+                <button class="lang-btn" id="ru-btn" aria-label="Русский">
                     <i class="fas fa-flag"></i> RU
                 </button>
             </div>
         </div>
     </header>
 
-
-    <!-- Hero Section -->
+    <!-- Hero Section Ultra-Moderne -->
     <section id="home" class="hero">
         <div class="hero-bg"></div>
         <div class="container">
-            <div class="hero-content fade-in">
-                <span class="hero-badge en">Future Computer Science Student</span>
-                <span class="hero-badge ru">Будущий студент информатики</span>
-                <div class="photo-container">
-                    <div class="photo-frame">
-                        <!-- Image walid.jpg dans un cadre circulaire -->
-                        <img id="profileImage" src="walid1.jpg" alt="Photo de Вагид Шахми">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <span class="hero-badge fr">Futur développeur web</span>
+                    <span class="hero-badge ru">Будущий веб-разработчик</span>
+                    <h1 class="hero-title">
+                        <span class="fr">Walid Chahmi</span>
+                        <span class="ru">Валид Шахми</span>
+                    </h1>
+
+                    <p class="hero-subtitle fr">
+                        Étudiant passionné en informatique, spécialisé en développement web avec plus de 25
+                        certifications.
+                        Je cherche à poursuivre mes études en Russie pour devenir ingénieur en Machine Learning.
+                    </p>
+                    <p class="hero-subtitle ru">
+                        Увлеченный студент информатики, специализирующийся на веб-разработке с более чем 25
+                        сертификатами.
+                        Я стремлюсь продолжить учебу в России, чтобы стать инженером по машинному обучению.
+                    </p>
+
+                    <div class="hero-stats">
+                        <div class="stat-box">
+                            <div class="stat-number">25+</div>
+                            <div class="stat-label fr">Certifications</div>
+                            <div class="stat-label ru">Сертификатов</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="stat-number">5</div>
+                            <div class="stat-label fr">Langues</div>
+                            <div class="stat-label ru">Языков</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="stat-number">2</div>
+                            <div class="stat-label fr">Marathons</div>
+                            <div class="stat-label ru">Марафоны</div>
+                        </div>
                     </div>
+
+                    <a href="#contact" class="hero-cta">
+                        <span class="fr">Me contacter</span>
+                        <span class="ru">Связаться со мной</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
                 </div>
-                <h1 class="hero-title">
-                    <span class="en" style="color: rgb(41, 0, 41);">Walid Chahmi</span>
-                    <span class="ru">Валид Шахми</span>
-                </h1>
 
-                <p class="hero-subtitle en">
-                    18-year-old Tunisian student specializing in Computer Science at Lycée Bardo.
-                    With 25+ certifications and a passion for technology, seeking to pursue
-                    higher education in Russia to become a Machine Learning Engineer.
-                </p>
-                <p class="hero-subtitle ru">
-                    18-летний тунисский студент, специализирующийся на информатике в лицее Бардо.
-                    Имея более 25 сертификатов и страсть к технологиям, стремлюсь получить
-                    высшее образование в России, чтобы стать инженером.
-                </p>
-
-                <div class="hero-stats">
-                    <div class="stat-box">
-                        <div class="stat-number">25+</div>
-                        <div class="stat-label en">Certifications</div>
-                        <div class="stat-label ru">Сертификатов</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-number">5</div>
-                        <div class="stat-label en">Languages</div>
-                        <div class="stat-label ru">Языков</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-number">2</div>
-                        <div class="stat-label en">Marathons</div>
-                        <div class="stat-label ru">Русский Дом Events</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-number">100%</div>
-                        <div class="stat-label en">HTML/CSS</div>
-                        <div class="stat-label ru">HTML/CSS</div>
+                <div class="hero-image">
+                    <div class="photo-frame">
+                        <img id="profileImage" src="walid1.jpg" alt="Photo de Валид Шахми" loading="lazy">
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- About Section -->
+    <!-- About Section Ultra-Moderne -->
     <section id="about" class="about">
         <div class="container">
-            <div class="section-header fade-in">
-                <h2 class="section-title en">About Me</h2>
+            <div class="section-header">
+                <h2 class="section-title fr">À propos de moi</h2>
                 <h2 class="section-title ru">Обо мне</h2>
-                <p class="section-subtitle en">
-                    Passionate computer science student with exceptional academic achievements
+                <p class="section-subtitle fr">
+                    Étudiant passionné en informatique avec des réalisations académiques exceptionnelles
                 </p>
                 <p class="section-subtitle ru">
                     Увлеченный студент информатики с выдающимися академическими достижениями
                 </p>
             </div>
 
-            <div class="about-content fade-in">
+            <div class="about-content">
                 <div class="about-image">
-                    <img src="walid.jpg" alt="Walid Chahmi" class="profile-img">
+                    <img src="walid.jpg" alt="Walid Chahmi" class="profile-img lazy-image" loading="lazy">
                     <div class="about-badge">
-                        <div class="en">GPA: 16.24/20</div>
+                        <div class="fr">Moyenne : 16.24/20</div>
                         <div class="ru">Средний балл: 16.24/20</div>
                     </div>
                 </div>
 
                 <div class="about-text">
-                    <h3 class="en">Lycée Bardo Student</h3>
+                    <h3 class="fr">Étudiant du Lycée Bardo</h3>
                     <h3 class="ru">Ученик лицея Бардо</h3>
 
-                    <p class="en">
-                        I am an 18-year-old student in my final year at Lycée Bardo, specializing in
-                        Computer Science (4ème Informatique). With an exceptional academic record
-                        and numerous technical certifications, I have demonstrated strong dedication
-                        to technology and innovation.
+                    <p class="fr">
+                        Je suis un étudiant de 18 ans en dernière année au Lycée Bardo, spécialisé en
+                        informatique (4ème Informatique). Avec un parcours académique exceptionnel
+                        et de nombreuses certifications techniques, j'ai démontré une forte dévotion
+                        à la technologie et à l'innovation.
                     </p>
                     <p class="ru">
                         Я 18-летний студент выпускного класса лицея Бардо, специализирующийся на
@@ -1315,10 +1863,10 @@
                         технологиям и инновациям.
                     </p>
 
-                    <p class="en">
-                        My goal is to study in Russia to become a Machine Learning Engineer.
-                        I actively participate in cultural activities at the Russian House in Tunis
-                        and have been studying Russian language (B1 level).
+                    <p class="fr">
+                        Mon objectif est d'étudier en Russie pour devenir ingénieur en Machine Learning.
+                        Je participe activement aux activités culturelles de la Maison de la Russie à Tunis
+                        et j'étudie la langue russe (niveau B1).
                     </p>
                     <p class="ru">
                         Моя цель - учиться в России, чтобы стать инженером по машинному обучению.
@@ -1331,31 +1879,31 @@
                             <div class="language-flag"
                                 style="background: linear-gradient(to bottom, #006233 33%, #006233 33%, #006233 33%, #006233 33%);">
                             </div>
-                            <span>Arabic (Native)</span>
+                            <span>Arabe (Langue maternelle)</span>
                         </div>
                         <div class="language-item">
                             <div class="language-flag"
                                 style="background: linear-gradient(to bottom, white 33%,blue 33%,  blue 33%,  red 90%);">
                             </div>
-                            <span>Russian (B1)</span>
+                            <span>Russe (B1)</span>
                         </div>
                         <div class="language-item">
                             <div class="language-flag"
                                 style="background: linear-gradient(to bottom, #00247D 33%, #00247D 33%, #00247D 33%, #00247D 33%);">
                             </div>
-                            <span>English (B2)</span>
+                            <span>Anglais (B2)</span>
                         </div>
                         <div class="language-item">
                             <div class="language-flag"
                                 style="background: linear-gradient(to right, #002395 33%, white 33%, white 66%, #ED2939 66%);">
                             </div>
-                            <span>French (B2)</span>
+                            <span>Français (B2)</span>
                         </div>
                         <div class="language-item">
                             <div class="language-flag"
                                 style="background: linear-gradient(to right, #009246 33%, white 33%, white 66%, #CE2B37 66%);">
                             </div>
-                            <span>Italian (A1)</span>
+                            <span>Italien (A1)</span>
                         </div>
                     </div>
                 </div>
@@ -1363,14 +1911,14 @@
         </div>
     </section>
 
-    <!-- Certifications Section -->
+    <!-- Certifications Section Ultra-Moderne -->
     <section id="certifications" class="certifications">
         <div class="container">
-            <div class="section-header fade-in">
-                <h2 class="section-title en">Certifications</h2>
+            <div class="section-header">
+                <h2 class="section-title fr">Certifications</h2>
                 <h2 class="section-title ru">Сертификаты</h2>
-                <p class="section-subtitle en">
-                    25+ certifications in web development, AI, and data analysis
+                <p class="section-subtitle fr">
+                    Plus de 25 certifications en développement web, IA et analyse de données
                 </p>
                 <p class="section-subtitle ru">
                     25+ сертификатов в веб-разработке, ИИ и анализе данных
@@ -1379,245 +1927,245 @@
 
             <div class="cert-grid">
                 <!-- Web Development -->
-                <div class="cert-card fade-in">
+                <div class="cert-card">
                     <div class="cert-icon">
                         <i class="fas fa-code"></i>
                     </div>
-                    <span class="cert-category">Web Development</span>
+                    <span class="cert-category">Développement Web</span>
                     <h4>Responsive Web Design</h4>
-                    <p class="en">freeCodeCamp - 300 hours certification</p>
+                    <p class="fr">freeCodeCamp - Certification de 300 heures</p>
                     <p class="ru">freeCodeCamp - Сертификат на 300 часов</p>
                 </div>
 
-                <div class="cert-card fade-in">
+                <div class="cert-card">
                     <div class="cert-icon">
                         <i class="fab fa-wordpress"></i>
                     </div>
-                    <span class="cert-category">Web Development</span>
-                    <h4>Full Website with WordPress</h4>
-                    <p class="en">Coursera Project - Professional certification</p>
+                    <span class="cert-category">Développement Web</span>
+                    <h4>Site complet avec WordPress</h4>
+                    <p class="fr">Projet Coursera - Certification professionnelle</p>
                     <p class="ru">Проект Coursera - Профессиональный сертификат</p>
                 </div>
 
-                <div class="cert-card fade-in">
+                <div class="cert-card">
                     <div class="cert-icon">
                         <i class="fas fa-code"></i>
                     </div>
-                    <span class="cert-category">Web Development</span>
-                    <h4>Build a Full Website using WordPress</h4>
-                    <p class="en">Coursera Project - Nov 2025</p>
+                    <span class="cert-category">Développement Web</span>
+                    <h4>Construire un site complet avec WordPress</h4>
+                    <p class="fr">Projet Coursera - Nov 2025</p>
                     <p class="ru">Проект Coursera - Ноя 2025</p>
                 </div>
 
-                <div class="cert-card fade-in">
+                <div class="cert-card">
                     <div class="cert-icon">
                         <i class="fas fa-code"></i>
                     </div>
-                    <span class="cert-category">Web Development</span>
-                    <h4>Web Development Essentials</h4>
-                    <p class="en">GOMYCODE - Average: 95%</p>
+                    <span class="cert-category">Développement Web</span>
+                    <h4>Essentiels du développement web</h4>
+                    <p class="fr">GOMYCODE - Moyenne : 95%</p>
                     <p class="ru">GOMYCODE - Средний балл: 95%</p>
                 </div>
 
-                <div class="cert-card fade-in">
+                <div class="cert-card">
                     <div class="cert-icon">
                         <i class="fas fa-code"></i>
                     </div>
-                    <span class="cert-category">Web Development</span>
-                    <h4>Build a free website with WordPress</h4>
-                    <p class="en">Coursera Project - Nov 2025</p>
+                    <span class="cert-category">Développement Web</span>
+                    <h4>Créer un site gratuit avec WordPress</h4>
+                    <p class="fr">Projet Coursera - Nov 2025</p>
                     <p class="ru">Проект Coursera - Ноя 2025</p>
                 </div>
 
-                <div class="cert-card fade-in">
+                <div class="cert-card">
                     <div class="cert-icon">
                         <i class="fas fa-code"></i>
                     </div>
-                    <span class="cert-category">Web Development</span>
-                    <h4>Develop a Company Website with Wix</h4>
-                    <p class="en">Coursera Project - Nov 2025</p>
+                    <span class="cert-category">Développement Web</span>
+                    <h4>Développer un site d'entreprise avec Wix</h4>
+                    <p class="fr">Projet Coursera - Nov 2025</p>
                     <p class="ru">Проект Coursera - Ноя 2025</p>
                 </div>
 
                 <!-- AI & Data -->
-                <div class="cert-card fade-in">
+                <div class="cert-card">
                     <div class="cert-icon">
                         <i class="fas fa-robot"></i>
                     </div>
-                    <span class="cert-category">Artificial Intelligence</span>
+                    <span class="cert-category">Intelligence Artificielle</span>
                     <h4>Gemini Certified Educator</h4>
-                    <p class="en">Google for Education - AI certification</p>
+                    <p class="fr">Google for Education - Certification IA</p>
                     <p class="ru">Google for Education - Сертификат по ИИ</p>
                 </div>
 
-                <div class="cert-card fade-in">
+                <div class="cert-card">
                     <div class="cert-icon">
                         <i class="fas fa-chart-line"></i>
                     </div>
-                    <span class="cert-category">Data Analysis</span>
-                    <h4>Construct Stock Market Indices</h4>
-                    <p class="en">Coursera - Financial data analysis</p>
+                    <span class="cert-category">Analyse de données</span>
+                    <h4>Construire des indices boursiers</h4>
+                    <p class="fr">Coursera - Analyse de données financières</p>
                     <p class="ru">Coursera - Анализ финансовых данных</p>
                 </div>
 
-                <div class="cert-card fade-in">
+                <div class="cert-card">
                     <div class="cert-icon">
                         <i class="fas fa-brain"></i>
                     </div>
-                    <span class="cert-category">AI & Freelancing</span>
-                    <h4>Online Freelancing & AI Strategies</h4>
-                    <p class="en">Alhababi Business - Jan 2025</p>
+                    <span class="cert-category">IA & Freelance</span>
+                    <h4>Freelance en ligne et stratégies IA</h4>
+                    <p class="fr">Alhababi Business - Jan 2025</p>
                     <p class="ru">Alhababi Business - Янв 2025</p>
                 </div>
 
-                <div class="cert-card fade-in">
+                <div class="cert-card">
                     <div class="cert-icon">
                         <i class="fas fa-laptop-code"></i>
                     </div>
-                    <span class="cert-category">Web Development</span>
-                    <h4>Introduction to Web Development with AI Skills</h4>
-                    <p class="en">GOMYCODE - June 2025</p>
+                    <span class="cert-category">Développement Web</span>
+                    <h4>Introduction au développement web avec compétences IA</h4>
+                    <p class="fr">GOMYCODE - Juin 2025</p>
                     <p class="ru">GOMYCODE - Июнь 2025</p>
                 </div>
 
                 <!-- Microsoft Office -->
-                <div class="cert-card fade-in">
+                <div class="cert-card">
                     <div class="cert-icon">
                         <i class="fas fa-file-excel"></i>
                     </div>
-                    <span class="cert-category">Office Tools</span>
-                    <h4>Getting Started with Microsoft Excel</h4>
-                    <p class="en">Coursera Project - Nov 2025</p>
+                    <span class="cert-category">Outils bureautiques</span>
+                    <h4>Premiers pas avec Microsoft Excel</h4>
+                    <p class="fr">Projet Coursera - Nov 2025</p>
                     <p class="ru">Проект Coursera - Ноя 2025</p>
                 </div>
 
-                <div class="cert-card fade-in">
+                <div class="cert-card">
                     <div class="cert-icon">
                         <i class="fas fa-file-powerpoint"></i>
                     </div>
-                    <span class="cert-category">Office Tools</span>
-                    <h4>Getting Started with Microsoft PowerPoint</h4>
-                    <p class="en">Coursera Project - Nov 2025</p>
+                    <span class="cert-category">Outils bureautiques</span>
+                    <h4>Premiers pas avec Microsoft PowerPoint</h4>
+                    <p class="fr">Projet Coursera - Nov 2025</p>
                     <p class="ru">Проект Coursera - Ноя 2025</p>
                 </div>
 
-                <div class="cert-card fade-in">
+                <div class="cert-card">
                     <div class="cert-icon">
                         <i class="fas fa-file-word"></i>
                     </div>
-                    <span class="cert-category">Office Tools</span>
-                    <h4>Getting Started with Microsoft Word</h4>
-                    <p class="en">Coursera Project - Nov 2025</p>
+                    <span class="cert-category">Outils bureautiques</span>
+                    <h4>Premiers pas avec Microsoft Word</h4>
+                    <p class="fr">Projet Coursera - Nov 2025</p>
                     <p class="ru">Проект Coursera - Ноя 2025</p>
                 </div>
 
                 <!-- Design & Marketing -->
-                <div class="cert-card fade-in">
+                <div class="cert-card">
                     <div class="cert-icon">
                         <i class="fas fa-palette"></i>
                     </div>
                     <span class="cert-category">Design</span>
-                    <h4>Marketing Design with Easil</h4>
-                    <p class="en">Coursera Project - Nov 2025</p>
+                    <h4>Marketing Design avec Easil</h4>
+                    <p class="fr">Projet Coursera - Nov 2025</p>
                     <p class="ru">Проект Coursera - Ноя 2025</p>
                 </div>
 
-                <div class="cert-card fade-in">
+                <div class="cert-card">
                     <div class="cert-icon">
                         <i class="fas fa-paint-brush"></i>
                     </div>
                     <span class="cert-category">Design</span>
-                    <h4>How to create presentations using Canva</h4>
-                    <p class="en">Coursera Project - Nov 2025</p>
+                    <h4>Comment créer des présentations avec Canva</h4>
+                    <p class="fr">Projet Coursera - Nov 2025</p>
                     <p class="ru">Проект Coursera - Ноя 2025</p>
                 </div>
 
-                <div class="cert-card fade-in">
+                <div class="cert-card">
                     <div class="cert-icon">
                         <i class="fas fa-object-group"></i>
                     </div>
                     <span class="cert-category">Design</span>
-                    <h4>Graphic design: pop your LinkedIn with 3D effect using Canva</h4>
-                    <p class="en">Coursera Project - Nov 2025</p>
+                    <h4>Design graphique : mettez en valeur votre LinkedIn avec un effet 3D avec Canva</h4>
+                    <p class="fr">Projet Coursera - Nov 2025</p>
                     <p class="ru">Проект Coursera - Ноя 2025</p>
                 </div>
 
                 <!-- Google Tools -->
-                <div class="cert-card fade-in">
+                <div class="cert-card">
                     <div class="cert-icon">
                         <i class="fas fa-table"></i>
                     </div>
-                    <span class="cert-category">Productivity</span>
-                    <h4>Create a Project Management Tracker using Google Sheets</h4>
-                    <p class="en">Coursera Project - Nov 2025</p>
+                    <span class="cert-category">Productivité</span>
+                    <h4>Créer un tracker de gestion de projet avec Google Sheets</h4>
+                    <p class="fr">Projet Coursera - Nov 2025</p>
                     <p class="ru">Проект Coursera - Ноя 2025</p>
                 </div>
 
-                <div class="cert-card fade-in">
+                <div class="cert-card">
                     <div class="cert-icon">
                         <i class="fab fa-blogger"></i>
                     </div>
-                    <span class="cert-category">Web Development</span>
-                    <h4>Creating a Free Business Page with Blogger</h4>
-                    <p class="en">Coursera Project - Nov 2025</p>
+                    <span class="cert-category">Développement Web</span>
+                    <h4>Créer une page d'entreprise gratuite avec Blogger</h4>
+                    <p class="fr">Projet Coursera - Nov 2025</p>
                     <p class="ru">Проект Coursera - Ноя 2025</p>
                 </div>
 
                 <!-- Competitions & Sports -->
-                <div class="cert-card fade-in">
+                <div class="cert-card">
                     <div class="cert-icon">
                         <i class="fas fa-trophy"></i>
                     </div>
-                    <span class="cert-category">Competition</span>
-                    <h4>PYCathlon Coding Competition</h4>
-                    <p class="en">Paris Dauphine University - Feb 2025</p>
+                    <span class="cert-category">Compétition</span>
+                    <h4>Compétition de codage PYCathlon</h4>
+                    <p class="fr">Université Paris Dauphine - Fév 2025</p>
                     <p class="ru">Университет Париж-Дофин - Фев 2025</p>
                 </div>
 
-                <div class="cert-card fade-in">
+                <div class="cert-card">
                     <div class="cert-icon">
                         <i class="fas fa-running"></i>
                     </div>
                     <span class="cert-category">Sports</span>
-                    <h4>21km Semi-Marathon Finisher</h4>
-                    <p class="en">COMAR & NOURANE Marathons - 2025</p>
+                    <h4>Finaliste du semi-marathon 21km</h4>
+                    <p class="fr">Marathons COMAR & NOURANE - 2025</p>
                     <p class="ru">Марафоны COMAR & NOURANE - 2025</p>
                 </div>
 
                 <!-- Academic -->
-                <div class="cert-card fade-in">
+                <div class="cert-card">
                     <div class="cert-icon">
                         <i class="fas fa-award"></i>
                     </div>
-                    <span class="cert-category">Academic</span>
-                    <h4>2nd Place Award - 3rd Grade</h4>
-                    <p class="en">High School Excellence - GPA: 16.24/20</p>
+                    <span class="cert-category">Académique</span>
+                    <h4>Prix de 2ème place - 3ème année</h4>
+                    <p class="fr">Excellence au lycée - Moyenne : 16.24/20</p>
                     <p class="ru">Отличник средней школы - Средний балл: 16,24/20</p>
                 </div>
 
                 <!-- Recommendation -->
-                <div class="cert-card fade-in">
+                <div class="cert-card">
                     <div class="cert-icon">
                         <i class="fas fa-file-signature"></i>
                     </div>
-                    <span class="cert-category">Recommendation</span>
-                    <h4 class="en">Russian Language Recommendation</h4>
+                    <span class="cert-category">Recommandation</span>
+                    <h4 class="fr">Recommandation en langue russe</h4>
                     <h4 class="ru">Рекомендация по русскому языку</h4>
-                    <p class="en">Tunisian Association of Russian Teachers</p>
+                    <p class="fr">Association tunisienne des professeurs de russe</p>
                     <p class="ru">Тунисская ассоциация преподавателей русского языка</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Skills Section -->
+    <!-- Skills Section Ultra-Moderne -->
     <section id="skills" class="skills">
         <div class="container">
-            <div class="section-header fade-in">
-                <h2 class="section-title en">Technical Skills</h2>
+            <div class="section-header">
+                <h2 class="section-title fr">Compétences techniques</h2>
                 <h2 class="section-title ru">Технические навыки</h2>
-                <p class="section-subtitle en">
-                    Comprehensive skill set in programming and development tools
+                <p class="section-subtitle fr">
+                    Ensemble complet de compétences en programmation et outils de développement
                 </p>
                 <p class="section-subtitle ru">
                     Полный набор навыков в программировании и инструментах разработки
@@ -1625,10 +2173,10 @@
             </div>
 
             <div class="skills-grid">
-                <div class="skill-card fade-in">
+                <div class="skill-card">
                     <div class="skill-category">
                         <i class="fas fa-code"></i>
-                        <h3 class="en">Programming</h3>
+                        <h3 class="fr">Programmation</h3>
                         <h3 class="ru">Программирование</h3>
                     </div>
 
@@ -1674,7 +2222,7 @@
 
                     <div class="skill-item">
                         <div class="skill-header">
-                            <span class="skill-name">SQL/Databases</span>
+                            <span class="skill-name">SQL/Bases de données</span>
                             <span class="skill-percent">86%</span>
                         </div>
                         <div class="skill-bar">
@@ -1683,10 +2231,10 @@
                     </div>
                 </div>
 
-                <div class="skill-card fade-in">
+                <div class="skill-card">
                     <div class="skill-category">
                         <i class="fas fa-tools"></i>
-                        <h3 class="en">Tools & Platforms</h3>
+                        <h3 class="fr">Outils et plateformes</h3>
                         <h3 class="ru">Инструменты и платформы</h3>
                     </div>
 
@@ -1741,16 +2289,16 @@
                     </div>
                 </div>
 
-                <div class="skill-card fade-in">
+                <div class="skill-card">
                     <div class="skill-category">
                         <i class="fas fa-language"></i>
-                        <h3 class="en">Languages</h3>
+                        <h3 class="fr">Langues</h3>
                         <h3 class="ru">Языки</h3>
                     </div>
 
                     <div class="skill-item">
                         <div class="skill-header">
-                            <span class="skill-name">Arabic (Native)</span>
+                            <span class="skill-name">Arabe (Langue maternelle)</span>
                             <span class="skill-percent">100%</span>
                         </div>
                         <div class="skill-bar">
@@ -1760,7 +2308,7 @@
 
                     <div class="skill-item">
                         <div class="skill-header">
-                            <span class="skill-name">French (B2)</span>
+                            <span class="skill-name">Français (B2)</span>
                             <span class="skill-percent">85%</span>
                         </div>
                         <div class="skill-bar">
@@ -1770,7 +2318,7 @@
 
                     <div class="skill-item">
                         <div class="skill-header">
-                            <span class="skill-name">English (B2)</span>
+                            <span class="skill-name">Anglais (B2)</span>
                             <span class="skill-percent">85%</span>
                         </div>
                         <div class="skill-bar">
@@ -1780,7 +2328,7 @@
 
                     <div class="skill-item">
                         <div class="skill-header">
-                            <span class="skill-name">Russian (B1)</span>
+                            <span class="skill-name">Russe (B1)</span>
                             <span class="skill-percent">70%</span>
                         </div>
                         <div class="skill-bar">
@@ -1790,7 +2338,7 @@
 
                     <div class="skill-item">
                         <div class="skill-header">
-                            <span class="skill-name">Italian (A1)</span>
+                            <span class="skill-name">Italien (A1)</span>
                             <span class="skill-percent">40%</span>
                         </div>
                         <div class="skill-bar">
@@ -1802,14 +2350,14 @@
         </div>
     </section>
 
-    <!-- Projects Section -->
+    <!-- Projects Section Ultra-Moderne -->
     <section id="projects" class="projects">
         <div class="container">
-            <div class="section-header fade-in">
-                <h2 class="section-title en">My Projects</h2>
+            <div class="section-header">
+                <h2 class="section-title fr">Mes projets</h2>
                 <h2 class="section-title ru">Мои проекты</h2>
-                <p class="section-subtitle en">
-                    Real-world applications showcasing my technical abilities
+                <p class="section-subtitle fr">
+                    Applications réelles montrant mes capacités techniques
                 </p>
                 <p class="section-subtitle ru">
                     Практические приложения, демонстрирующие мои технические способности
@@ -1817,22 +2365,22 @@
             </div>
 
             <div class="project-grid">
-                <div class="project-card fade-in">
+                <div class="project-card">
                     <div class="project-image">
                         <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                            alt="E-commerce Website">
+                            alt="Site e-commerce" loading="lazy">
                     </div>
                     <div class="project-content">
-                        <h3 class="project-title">AI-Powered E-commerce Platform</h3>
-                        <p class="project-description en">
-                            Intelligent online store with personalized recommendations using machine learning
-                            algorithms,
-                            real-time inventory management, and automated customer service chatbot.
+                        <h3 class="project-title">Plateforme e-commerce avec IA</h3>
+                        <p class="project-description fr">
+                            Boutique en ligne intelligente avec recommandations personnalisées utilisant des algorithmes
+                            d'apprentissage automatique,
+                            gestion des stocks en temps réel et chatbot de service client automatisé.
                         </p>
                         <p class="project-description ru">
                             Интеллектуальный интернет-магазин с персонализированными рекомендациями на основе алгоритмов
                             машинного обучения,
-                            управлением запасами в реальном времени и автоматизированным чат-ботом службы поддержки.
+                            управлением запасов в реальном времени и автоматизированным чат-ботом службы поддержки.
                         </p>
                         <div class="project-tech">
                             <span class="tech-tag">Python</span>
@@ -1844,15 +2392,16 @@
                     </div>
                 </div>
 
-                <div class="project-card fade-in">
+                <div class="project-card">
                     <div class="project-image">
-                        <img src="stock-market-analysis-dashbord.png" alt="Stock Analysis Tool">
+                        <img src="stock-market-analysis-dashbord.png" alt="Outil d'analyse boursière" loading="lazy">
                     </div>
                     <div class="project-content">
-                        <h3 class="project-title">Stock Market Analysis Dashboard</h3>
-                        <p class="project-description en">
-                            Advanced financial analysis platform with real-time stock tracking, predictive analytics,
-                            custom index construction, and interactive data visualizations.
+                        <h3 class="project-title">Tableau de bord d'analyse boursière</h3>
+                        <p class="project-description fr">
+                            Plateforme d'analyse financière avancée avec suivi des actions en temps réel,
+                            analyses prédictives,
+                            construction d'indices personnalisés et visualisations de données interactives.
                         </p>
                         <p class="project-description ru">
                             Продвинутая платформа финансового анализа с отслеживанием акций в реальном времени,
@@ -1869,16 +2418,17 @@
                     </div>
                 </div>
 
-                <div class="project-card fade-in">
+                <div class="project-card">
                     <div class="project-image">
                         <img src="https://images.unsplash.com/photo-1531746790731-6c087fecd65a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                            alt="Educational Platform">
+                            alt="Plateforme éducative" loading="lazy">
                     </div>
                     <div class="project-content">
-                        <h3 class="project-title">Smart Learning Management System</h3>
-                        <p class="project-description en">
-                            Adaptive educational platform that personalizes learning paths based on student performance,
-                            with progress tracking, interactive quizzes, and AI-powered recommendations.
+                        <h3 class="project-title">Système d'apprentissage intelligent</h3>
+                        <p class="project-description fr">
+                            Plateforme éducative adaptative qui personnalise les parcours d'apprentissage en fonction
+                            des performances des étudiants,
+                            avec suivi des progrès, quiz interactifs et recommandations basées sur l'IA.
                         </p>
                         <p class="project-description ru">
                             Адаптивная образовательная платформа, которая персонализирует учебные пути на основе
@@ -1890,7 +2440,7 @@
                             <span class="tech-tag">JavaScript</span>
                             <span class="tech-tag">PHP</span>
                             <span class="tech-tag">MySQL</span>
-                            <span class="tech-tag">AI Integration</span>
+                            <span class="tech-tag">Intégration IA</span>
                         </div>
                     </div>
                 </div>
@@ -1898,14 +2448,14 @@
         </div>
     </section>
 
-    <!-- Gallery Section -->
+    <!-- Gallery Section Ultra-Moderne -->
     <section id="gallery" class="gallery">
         <div class="container">
-            <div class="section-header fade-in">
-                <h2 class="section-title en">Gallery & Events</h2>
+            <div class="section-header">
+                <h2 class="section-title fr">Galerie et événements</h2>
                 <h2 class="section-title ru">Галерея и мероприятия</h2>
-                <p class="section-subtitle en">
-                    Marathon achievements and Russian House cultural activities
+                <p class="section-subtitle fr">
+                    Réalisations en marathon et activités culturelles de la Maison de la Russie
                 </p>
                 <p class="section-subtitle ru">
                     Достижения в марафонах и культурные мероприятия Русского дома
@@ -1913,49 +2463,49 @@
             </div>
 
             <div class="gallery-grid">
-                <div class="gallery-item fade-in">
-                    <img src="comar.jpg" alt="Marathon Running">
+                <div class="gallery-item">
+                    <img src="comar.jpg" alt="Marathon à pied" loading="lazy">
                     <div class="gallery-overlay">
-                        <h4>COMAR 21km Marathon</h4>
-                        <p>Time: 1:59:36 | November 2025</p>
+                        <h4>Marathon COMAR 21km</h4>
+                        <p>Temps : 1:59:36 | Novembre 2025</p>
                     </div>
                 </div>
 
-                <div class="gallery-item fade-in">
-                    <img src="nourane.jpg" alt="Running Competition">
+                <div class="gallery-item">
+                    <img src="nourane.jpg" alt="Compétition de course" loading="lazy">
                     <div class="gallery-overlay">
-                        <h4>NOURANE 21km Marathon</h4>
-                        <p>Time: 1:49:30 | October 2025</p>
+                        <h4>Marathon NOURANE 21km</h4>
+                        <p>Temps : 1:49:30 | Octobre 2025</p>
                     </div>
                 </div>
 
-                <div class="gallery-item fade-in">
-                    <img src="russianevent.jpg" alt="Russian Cultural Event">
+                <div class="gallery-item">
+                    <img src="russianevent.jpg" alt="Événement culturel russe" loading="lazy">
                     <div class="gallery-overlay">
-                        <h4>Russian House Event - Cultural Workshop</h4>
-                        <p>Tunis, 2025 | Russian-Tunisian cultural exchange</p>
+                        <h4>Événement Maison de la Russie - Atelier culturel</h4>
+                        <p>Tunis, 2025 | Échange culturel russo-tunisien</p>
                     </div>
                 </div>
 
-                <div class="gallery-item fade-in">
-                    <img src="russianeventlearning.jpg" alt="Coding Competition">
+                <div class="gallery-item">
+                    <img src="russianeventlearning.jpg" alt="Compétition de codage" loading="lazy">
                     <div class="gallery-overlay">
-                        <h4>Russian House Event - Language Course</h4>
-                        <p>Tunis, 2025 | Russian language learning</p>
+                        <h4>Événement Maison de la Russie - Cours de langue</h4>
+                        <p>Tunis, 2025 | Apprentissage de la langue russe</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
+    <!-- Contact Section Ultra-Moderne -->
     <section id="contact" class="contact">
         <div class="container">
-            <div class="section-header fade-in">
-                <h2 class="section-title en">Contact Information</h2>
+            <div class="section-header">
+                <h2 class="section-title fr">Informations de contact</h2>
                 <h2 class="section-title ru">Контактная информация</h2>
-                <p class="section-subtitle en">
-                    Get in touch for collaboration or opportunities
+                <p class="section-subtitle fr">
+                    Contactez-moi pour une collaboration ou des opportunités
                 </p>
                 <p class="section-subtitle ru">
                     Свяжитесь со мной для сотрудничества или карьерных возможностей
@@ -1964,80 +2514,79 @@
 
             <div class="contact-content">
                 <div class="contact-info">
-                    <div class="contact-item fade-in">
+                    <div class="contact-item">
                         <div class="contact-icon">
                             <i class="fas fa-envelope"></i>
                         </div>
                         <div>
-                            <h3 class="en">Email</h3>
+                            <h3 class="fr">Email</h3>
                             <h3 class="ru">Электронная почта</h3>
                             <p>chahmiwalid1@gmail.com</p>
                         </div>
                     </div>
 
-                    <div class="contact-item fade-in">
+                    <div class="contact-item">
                         <div class="contact-icon">
                             <i class="fas fa-phone"></i>
                         </div>
                         <div>
-                            <h3 class="en">Phone</h3>
+                            <h3 class="fr">Téléphone</h3>
                             <h3 class="ru">Телефон</h3>
                             <p>+216 21 857 197</p>
                         </div>
                     </div>
 
-                    <div class="contact-item fade-in">
+                    <div class="contact-item">
                         <div class="contact-icon">
                             <i class="fas fa-map-marker-alt"></i>
                         </div>
                         <div>
-                            <h3 class="en">Location</h3>
+                            <h3 class="fr">Localisation</h3>
                             <h3 class="ru">Местоположение</h3>
-                            <p class="en">Tunis, Tunisia</p>
+                            <p class="fr">Tunis, Tunisie</p>
                             <p class="ru">Тунис, Тунис</p>
                         </div>
                     </div>
 
-                    <div class="contact-item fade-in">
+                    <div class="contact-item">
                         <div class="contact-icon">
                             <i class="fas fa-graduation-cap"></i>
                         </div>
                         <div>
-                            <h3 class="en">Education</h3>
+                            <h3 class="fr">Éducation</h3>
                             <h3 class="ru">Образование</h3>
-                            <p class="en">Lycée Bardo - Computer Science</p>
+                            <p class="fr">Lycée Bardo - Informatique</p>
                             <p class="ru">Лицей Бардо - Информатика</p>
                         </div>
                     </div>
                 </div>
 
-                <div class="contact-form fade-in">
-                    <h3 class="en" style="margin-bottom: 25px;">Send a Message</h3>
+                <div class="contact-form">
+                    <h3 class="fr" style="margin-bottom: 25px;">Envoyer un message</h3>
                     <h3 class="ru" style="margin-bottom: 25px;">Отправить сообщение</h3>
 
-                    <form>
+                    <form id="contact-form">
                         <div class="form-group">
-                            <label class="en" for="name">Your Name</label>
+                            <label class="fr" for="name">Votre nom</label>
                             <label class="ru" for="name">Ваше имя</label>
-                            <input type="text" id="name" class="form-control" placeholder="John Doe">
+                            <input type="text" id="name" class="form-control" placeholder="John Doe" required>
                         </div>
 
                         <div class="form-group">
-                            <label class="en" for="email">Your Email</label>
+                            <label class="fr" for="email">Votre email</label>
                             <label class="ru" for="email">Ваш email</label>
-                            <input type="email" id="email" class="form-control" placeholder="john@example.com">
+                            <input type="email" id="email" class="form-control" placeholder="john@example.com" required>
                         </div>
 
                         <div class="form-group">
-                            <label class="en" for="message">Your Message</label>
+                            <label class="fr" for="message">Votre message</label>
                             <label class="ru" for="message">Ваше сообщение</label>
                             <textarea id="message" class="form-control" rows="5"
-                                placeholder="Write your message here..."></textarea>
+                                placeholder="Écrivez votre message ici..." required></textarea>
                         </div>
 
-
                         <button type="submit" class="btn">
-                            <span class="en">Send Message</span>
+                            <span class="fr">Envoyer le message</span>
                             <span class="ru">Отправить</span>
                         </button>
                     </form>
@@ -2046,7 +2595,7 @@
         </div>
     </section>
 
-    <!-- Footer Stylé -->
+    <!-- Footer Ultra-Moderne -->
     <footer>
         <div class="container">
             <div class="footer-content">
@@ -2056,14 +2605,14 @@
                             <i class="fas fa-graduation-cap"></i>
                         </div>
                         <div class="footer-logo-text">
-                            <span class="en">Walid Chahmi</span>
+                            <span class="fr">Walid Chahmi</span>
                             <span class="ru">Валид Шахми</span>
                         </div>
                     </div>
-                    <p class="footer-description en">
-                        Passionate computer science student seeking to pursue higher education
-                        in Russia. With 25+ certifications and exceptional academic achievements,
-                        ready to contribute to the field of technology and innovation.
+                    <p class="footer-description fr">
+                        Étudiant passionné en informatique cherchant à poursuivre ses études supérieures
+                        en Russie. Avec plus de 25 certifications et des réalisations académiques exceptionnelles,
+                        prêt à contribuer au domaine de la technologie et de l'innovation.
                     </p>
                     <p class="footer-description ru">
                         Увлеченный студент информатики, стремящийся получить высшее образование
@@ -2072,51 +2621,52 @@
                     </p>
                     <div class="social-links">
                         <a href="https://www.linkedin.com/in/walid-chahmi-6a394b279/" target="_blank"
-                            class="social-link">
+                            class="social-link" aria-label="LinkedIn">
                             <i class="fab fa-linkedin-in"></i>
                         </a>
-                        <a href="https://github.com/walidchahmi" target="_blank" class="social-link">
+                        <a href="https://github.com/walidchahmi" target="_blank" class="social-link"
+                            aria-label="GitHub">
                             <i class="fab fa-github"></i>
                         </a>
-                        <a href="https://t.me/+21621857197" target="_blank" class="social-link">
+                        <a href="https://t.me/+21621857197" target="_blank" class="social-link" aria-label="Telegram">
                             <i class="fab fa-telegram"></i>
                         </a>
-                        <a href="mailto:chahmiwalid1@gmail.com" class="social-link">
+                        <a href="mailto:chahmiwalid1@gmail.com" class="social-link" aria-label="Email">
                             <i class="fas fa-envelope"></i>
                         </a>
                     </div>
                 </div>
 
                 <div class="footer-col">
-                    <h3 class="footer-title en">Quick Links</h3>
+                    <h3 class="footer-title fr">Liens rapides</h3>
                     <h3 class="footer-title ru">Быстрые ссылки</h3>
                     <ul class="footer-links">
-                        <li><a href="#home" class="en">Home</a><a href="#home" class="ru">Главная</a></li>
-                        <li><a href="#about" class="en">About</a><a href="#about" class="ru">Обо мне</a></li>
-                        <li><a href="#certifications" class="en">Certifications</a><a href="#certifications"
+                        <li><a href="#home" class="fr">Accueil</a><a href="#home" class="ru">Главная</a></li>
+                        <li><a href="#about" class="fr">À propos</a><a href="#about" class="ru">Обо мне</a></li>
+                        <li><a href="#certifications" class="fr">Certifications</a><a href="#certifications"
                                 class="ru">Сертификаты</a></li>
-                        <li><a href="#skills" class="en">Skills</a><a href="#skills" class="ru">Навыки</a></li>
-                        <li><a href="#projects" class="en">Projects</a><a href="#projects" class="ru">Проекты</a></li>
+                        <li><a href="#skills" class="fr">Compétences</a><a href="#skills" class="ru">Навыки</a></li>
+                        <li><a href="#projects" class="fr">Projets</a><a href="#projects" class="ru">Проекты</a></li>
                     </ul>
                 </div>
 
                 <div class="footer-col">
-                    <h3 class="footer-title en">Information</h3>
+                    <h3 class="footer-title fr">Informations</h3>
                     <h3 class="footer-title ru">Информация</h3>
                     <ul class="footer-links">
-                        <li><a href="#gallery" class="en">Gallery</a><a href="#gallery" class="ru">Галерея</a></li>
-                        <li><a href="#contact" class="en">Contact</a><a href="#contact" class="ru">Контакты</a></li>
+                        <li><a href="#gallery" class="fr">Galerie</a><a href="#gallery" class="ru">Галерея</a></li>
+                        <li><a href="#contact" class="fr">Contact</a><a href="#contact" class="ru">Контакты</a></li>
                     </ul>
                 </div>
             </div>
             <hr>
 
             <div class="footer-bottom">
-                <p class="en">
-                    © 2025 Walid Chahmi. All rights reserved.
-                    Portfolio for Russian University Applications
+                <p class="fr">
+                    © 2025 Walid Chahmi. Tous droits réservés.
+                    Portfolio pour les candidatures aux universités russes
                     <span class="footer-heart">♥</span>
-                    Made with passion for computer science and Russian education
+                    Réalisé avec passion pour l'informatique et l'éducation russe
                 </p>
                 <p class="ru">
                     © 2025 Валид Шахми. Все права защищены.
@@ -2129,6 +2679,34 @@
     </footer>
 
     <script>
+        // Vérification du support du localStorage
+        const storageAvailable = (type) => {
+            try {
+                const storage = window[type];
+                const x = '__storage_test__';
+                storage.setItem(x, x);
+                storage.removeItem(x);
+                return true;
+            } catch (e) {
+                return false;
+            }
+        };
+
+        // Loader
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.getElementById('loader').classList.add('hidden');
+            }, 500);
+        });
+
+        // Scroll progress bar
+        window.addEventListener('scroll', () => {
+            const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+            const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrollPercent = (scrollTop / scrollHeight) * 100;
+            document.getElementById('scrollProgress').style.width = scrollPercent + '%';
+        });
+
         // ============================
         //  THEME TOGGLE (Light/Dark)
         // ============================
@@ -2138,11 +2716,16 @@
         const applyTheme = (theme) => {
             body.classList.toggle('dark-mode', theme === 'dark');
             themeToggle.classList.toggle('active', theme === 'dark');
-            localStorage.setItem('theme', theme);
+
+            // Sauvegarder le thème si localStorage est disponible
+            if (storageAvailable('localStorage')) {
+                localStorage.setItem('theme', theme);
+            }
         };
 
-        // Load saved theme
-        applyTheme(localStorage.getItem('theme') || 'light');
+        // Charger le thème sauvegardé ou utiliser le thème par défaut
+        const savedTheme = storageAvailable('localStorage') ? localStorage.getItem('theme') : 'light';
+        applyTheme(savedTheme || 'light');
 
         themeToggle?.addEventListener('click', () => {
             const newTheme = body.classList.contains('dark-mode') ? 'light' : 'dark';
@@ -2152,23 +2735,57 @@
         // ============================
         //       LANGUAGE TOGGLE
         // ============================
-        const enBtn = document.getElementById('en-btn');
+        const frBtn = document.getElementById('fr-btn');
         const ruBtn = document.getElementById('ru-btn');
 
         const applyLanguage = (lang) => {
-            body.classList.toggle('ru-lang', lang === 'ru'); // garde ça pour le russe
-            body.classList.toggle('en-lang', lang === 'en'); // <-- ajoute cette ligne pour l’anglais
-            enBtn?.classList.toggle('active', lang === 'en');
+            body.classList.toggle('ru-lang', lang === 'ru');
+            body.classList.toggle('fr-lang', lang === 'fr');
+            frBtn?.classList.toggle('active', lang === 'fr');
             ruBtn?.classList.toggle('active', lang === 'ru');
-            localStorage.setItem('language', lang);
+
+            // Sauvegarder la langue si localStorage est disponible
+            if (storageAvailable('localStorage')) {
+                localStorage.setItem('language', lang);
+            }
         };
 
+        // Charger la langue sauvegardée ou utiliser le français par défaut
+        const savedLanguage = storageAvailable('localStorage') ? localStorage.getItem('language') : 'fr';
+        applyLanguage(savedLanguage || 'fr');
 
-        // Load saved language
-        applyLanguage(localStorage.getItem('language') || 'en');
-
-        enBtn?.addEventListener('click', () => applyLanguage('en'));
+        frBtn?.addEventListener('click', () => applyLanguage('fr'));
         ruBtn?.addEventListener('click', () => applyLanguage('ru'));
+
+        // ============================
+        //      MOBILE MENU TOGGLE
+        // ============================
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const navLinks = document.getElementById('nav-links');
+
+        mobileMenuBtn?.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+
+            // Changer l'icône du menu
+            const icon = mobileMenuBtn.querySelector('i');
+            if (navLinks.classList.contains('active')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+
+        // Fermer le menu mobile lors du clic sur un lien
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                const icon = mobileMenuBtn.querySelector('i');
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            });
+        });
 
         // ============================
         //      Smooth Scroll NAV
@@ -2192,7 +2809,7 @@
         // ============================
         //      FADE-IN ANIMATION 
         // ============================
-        const fadeElements = document.querySelectorAll('.fade-in');
+        const fadeElements = document.querySelectorAll('.section-header, .about-image, .about-text, .cert-card, .skill-card, .project-card, .gallery-item, .contact-item, .contact-form');
 
         const fadeInOnScroll = () => {
             fadeElements.forEach(el => {
@@ -2237,9 +2854,9 @@
         // ============================
         //        CONTACT FORM
         // ============================
-        const formButton = document.querySelector('.btn');
+        const contactForm = document.getElementById('contact-form');
 
-        formButton?.addEventListener('click', (e) => {
+        contactForm?.addEventListener('submit', (e) => {
             e.preventDefault();
 
             const name = document.getElementById('name')?.value.trim();
@@ -2249,24 +2866,141 @@
             if (name && email && message) {
                 const successText = body.classList.contains('ru-lang')
                     ? 'Сообщение отправлено успешно! Я свяжусь с вами в ближайшее время.'
-                    : 'Message sent successfully! I will get back to you soon.';
+                    : 'Message envoyé avec succès! Je vous répondrai dans les plus brefs délais.';
 
-                alert(successText);
+                // Afficher une notification moderne
+                showNotification(successText, 'success');
 
-                document.getElementById('name').value = '';
-                document.getElementById('email').value = '';
-                document.getElementById('message').value = '';
-
+                // Réinitialiser le formulaire
+                contactForm.reset();
             } else {
                 const errorText = body.classList.contains('ru-lang')
                     ? 'Пожалуйста, заполните все поля.'
-                    : 'Please fill in all fields.';
+                    : 'Veuillez remplir tous les champs.';
 
-                alert(errorText);
+                // Afficher une notification d'erreur moderne
+                showNotification(errorText, 'error');
+            }
+        });
+
+        // Fonction pour afficher une notification moderne
+        function showNotification(message, type) {
+            const notification = document.createElement('div');
+            notification.className = `notification ${type}`;
+            notification.textContent = message;
+
+            document.body.appendChild(notification);
+
+            // Animer l'apparition de la notification
+            setTimeout(() => {
+                notification.classList.add('show');
+            }, 100);
+
+            // Masquer et supprimer la notification après 3 secondes
+            setTimeout(() => {
+                notification.classList.remove('show');
+                setTimeout(() => {
+                    document.body.removeChild(notification);
+                }, 300);
+            }, 3000);
+        }
+
+        // ============================
+        //        LAZY LOADING IMAGES
+        // ============================
+        document.addEventListener('DOMContentLoaded', () => {
+            const lazyImages = document.querySelectorAll('img.lazy-image');
+
+            if ('IntersectionObserver' in window) {
+                const imageObserver = new IntersectionObserver((entries, observer) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            const img = entry.target;
+                            img.classList.add('loaded');
+                            imageObserver.unobserve(img);
+                        }
+                    });
+                });
+
+                lazyImages.forEach(img => {
+                    imageObserver.observe(img);
+                });
+            } else {
+                // Fallback pour les navigateurs qui ne supportent pas IntersectionObserver
+                lazyImages.forEach(img => {
+                    img.classList.add('loaded');
+                });
+            }
+        });
+
+        // ============================
+        //        ACCESSIBILITY IMPROVEMENTS
+        // ============================
+        document.addEventListener('DOMContentLoaded', () => {
+            // Améliorer l'accessibilité du thème toggle
+            if (themeToggle) {
+                themeToggle.setAttribute('aria-label', 'Basculer entre le mode clair et sombre');
+                themeToggle.setAttribute('aria-pressed', 'false');
+
+                themeToggle.addEventListener('click', () => {
+                    const isPressed = themeToggle.getAttribute('aria-pressed') === 'true';
+                    themeToggle.setAttribute('aria-pressed', !isPressed);
+                });
+            }
+
+            // Améliorer l'accessibilité des boutons de langue
+            if (frBtn) {
+                frBtn.setAttribute('aria-label', 'Changer la langue en français');
+                frBtn.setAttribute('aria-pressed', 'true');
+            }
+
+            if (ruBtn) {
+                ruBtn.setAttribute('aria-label', 'Изменить язык на русский');
+                ruBtn.setAttribute('aria-pressed', 'false');
+            }
+
+            // Mettre à jour les attributs aria-pressed lors du changement de langue
+            frBtn?.addEventListener('click', () => {
+                frBtn.setAttribute('aria-pressed', 'true');
+                ruBtn.setAttribute('aria-pressed', 'false');
+            });
+
+            ruBtn?.addEventListener('click', () => {
+                frBtn.setAttribute('aria-pressed', 'false');
+                ruBtn.setAttribute('aria-pressed', 'true');
+            });
+        });
+        // Gestion de l'affiche de bienvenue
+        document.addEventListener('DOMContentLoaded', () => {
+            const welcomeOverlay = document.getElementById('welcomeOverlay');
+
+            // Vérifier si l'utilisateur a déjà vu l'affiche
+            const hasSeenWelcome = storageAvailable('localStorage') ? localStorage.getItem('hasSeenWelcome') : null;
+
+            // Afficher l'affiche si l'utilisateur ne l'a pas encore vue
+            if (!hasSeenWelcome) {
+                // Attendre que le loader disparaisse avant d'afficher l'affiche
+                setTimeout(() => {
+                    welcomeOverlay.classList.add('show');
+
+                    // Sauvegarder que l'utilisateur a vu l'affiche
+                    if (storageAvailable('localStorage')) {
+                        localStorage.setItem('hasSeenWelcome', 'true');
+                    }
+
+                    // Fermer automatiquement l'affiche après 5 secondes
+                    setTimeout(() => {
+                        welcomeOverlay.classList.add('hide');
+
+                        // Retirer l'affiche après l'animation de disparition
+                        setTimeout(() => {
+                            welcomeOverlay.classList.remove('show', 'hide');
+                        }, 800);
+                    }, 5000); // 5 secondes
+                }, 1000); // Délai de 1 seconde après la disparition du loader
             }
         });
     </script>
-
 </body>
 
 </html>
